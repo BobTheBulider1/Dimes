@@ -2237,66 +2237,84 @@ section {
 .nektar-slice--seftali::before {
   background: radial-gradient(circle at 50% 60%, #ff7849 0%, #f97316 35%, #ea580c 60%, #7c2d12 100%);
 }
-.nektar-slice--seftali:hover,
 .nektar-slice--seftali.is-centered {
-  border-color: rgba(251, 146, 60, 0.8) !important;
-  box-shadow: inset 0 0 45px rgba(249, 115, 22, 0.45), 0 0 35px rgba(234, 88, 12, 0.35) !important;
+  border-color: rgba(251, 146, 60, 0.85) !important;
+  box-shadow: inset 0 0 45px rgba(249, 115, 22, 0.5), 0 0 35px rgba(234, 88, 12, 0.4) !important;
 }
 
 /* 2: Tropikal Meyveler Glow (Elektrik Okyanus Mavisi) */
 .nektar-slice--tropikal::before {
   background: radial-gradient(circle at 50% 60%, #38bdf8 0%, #0ea5e9 35%, #0284c7 60%, #082f49 100%);
 }
-.nektar-slice--tropikal:hover,
 .nektar-slice--tropikal.is-centered {
-  border-color: rgba(56, 189, 248, 0.8) !important;
-  box-shadow: inset 0 0 45px rgba(56, 189, 248, 0.45), 0 0 35px rgba(2, 132, 199, 0.35) !important;
+  border-color: rgba(56, 189, 248, 0.85) !important;
+  box-shadow: inset 0 0 45px rgba(56, 189, 248, 0.5), 0 0 35px rgba(2, 132, 199, 0.4) !important;
 }
 
 /* 3: Mango İçeceği Glow (Canlı Neon Mango Yeşili) */
 .nektar-slice--mango::before {
   background: radial-gradient(circle at 50% 60%, #4ade80 0%, #22c55e 35%, #16a34a 60%, #052e16 100%);
 }
-.nektar-slice--mango:hover,
 .nektar-slice--mango.is-centered {
-  border-color: rgba(74, 222, 128, 0.8) !important;
-  box-shadow: inset 0 0 45px rgba(34, 197, 94, 0.45), 0 0 35px rgba(22, 163, 74, 0.35) !important;
+  border-color: rgba(74, 222, 128, 0.85) !important;
+  box-shadow: inset 0 0 45px rgba(34, 197, 94, 0.5), 0 0 35px rgba(22, 163, 74, 0.4) !important;
 }
 
 /* 4: Orman Meyveleri Glow (Doğal Böğürtlen & Vişne Tonu — Neon Parlama Kaldırıldı) */
 .nektar-slice--orman::before {
   background: radial-gradient(circle at 50% 60%, #9d174d 0%, #831843 40%, #500724 75%, #200210 100%);
 }
-.nektar-slice--orman:hover,
 .nektar-slice--orman.is-centered {
-  border-color: rgba(244, 63, 94, 0.4) !important;
-  box-shadow: inset 0 0 30px rgba(157, 23, 77, 0.35) !important;
+  border-color: rgba(244, 63, 94, 0.5) !important;
+  box-shadow: inset 0 0 30px rgba(157, 23, 77, 0.4) !important;
 }
 
 /* 5: Ananas İçeceği Glow (Güneş Sarısı & Altın Ananas) */
 .nektar-slice--ananas::before {
   background: radial-gradient(circle at 50% 60%, #fde047 0%, #facc15 35%, #eab308 60%, #713f12 100%);
 }
-.nektar-slice--ananas:hover,
 .nektar-slice--ananas.is-centered {
-  border-color: rgba(253, 224, 71, 0.8) !important;
-  box-shadow: inset 0 0 45px rgba(250, 204, 21, 0.45), 0 0 35px rgba(234, 179, 8, 0.35) !important;
+  border-color: rgba(253, 224, 71, 0.85) !important;
+  box-shadow: inset 0 0 45px rgba(250, 204, 21, 0.5), 0 0 35px rgba(234, 179, 8, 0.4) !important;
 }
 
-/* Hover Accordion & Glow activation */
-.nektar-roster:hover .nektar-roster-slice {
-  flex: 0.82;
-  opacity: 0.65;
-}
+/* Desktop Only Hover Rules (Never triggered on touch gestures) */
+@media (hover: hover) and (pointer: fine) {
+  .nektar-slice--seftali:hover {
+    border-color: rgba(251, 146, 60, 0.85);
+    box-shadow: inset 0 0 45px rgba(249, 115, 22, 0.5), 0 0 35px rgba(234, 88, 12, 0.4);
+  }
+  .nektar-slice--tropikal:hover {
+    border-color: rgba(56, 189, 248, 0.85);
+    box-shadow: inset 0 0 45px rgba(56, 189, 248, 0.5), 0 0 35px rgba(2, 132, 199, 0.4);
+  }
+  .nektar-slice--mango:hover {
+    border-color: rgba(74, 222, 128, 0.85);
+    box-shadow: inset 0 0 45px rgba(34, 197, 94, 0.5), 0 0 35px rgba(22, 163, 74, 0.4);
+  }
+  .nektar-slice--orman:hover {
+    border-color: rgba(244, 63, 94, 0.5);
+    box-shadow: inset 0 0 30px rgba(157, 23, 77, 0.4);
+  }
+  .nektar-slice--ananas:hover {
+    border-color: rgba(253, 224, 71, 0.85);
+    box-shadow: inset 0 0 45px rgba(250, 204, 21, 0.5), 0 0 35px rgba(234, 179, 8, 0.4);
+  }
 
-.nektar-roster-slice:hover {
-  flex: 1.85 !important;
-  opacity: 1 !important;
-  z-index: 10;
-}
+  .nektar-roster:hover .nektar-roster-slice {
+    flex: 0.82;
+    opacity: 0.65;
+  }
 
-.nektar-roster-slice:hover::before {
-  opacity: 0.98;
+  .nektar-roster-slice:hover {
+    flex: 1.85 !important;
+    opacity: 1 !important;
+    z-index: 10;
+  }
+
+  .nektar-roster-slice:hover::before {
+    opacity: 0.98;
+  }
 }
 
 .nektar-roster-visual {
@@ -2764,75 +2782,102 @@ section {
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Active Color Glow for each slice on hover */
+/* Active Color Glow for each slice */
 /* 1: Cool Lime (Yeşil & Siyah) */
 .cool-slice--lime::before {
   background: radial-gradient(circle at 50% 60%, #22c55e 0%, #15803d 40%, #052e16 100%);
 }
-.cool-slice--lime:hover {
-  border-color: rgba(74, 222, 128, 0.6);
-  box-shadow: inset 0 0 35px rgba(74, 222, 128, 0.3);
+.cool-slice--lime.is-centered {
+  border-color: rgba(74, 222, 128, 0.85) !important;
+  box-shadow: inset 0 0 45px rgba(34, 197, 94, 0.5), 0 0 35px rgba(22, 163, 74, 0.4) !important;
 }
 
 /* 2: Cool Lime Zero Sugar (Mint Yeşil & Siyah Slate) */
 .cool-slice--zero::before {
   background: radial-gradient(circle at 50% 60%, #14b8a6 0%, #0f766e 40%, #022c22 100%);
 }
-.cool-slice--zero:hover {
-  border-color: rgba(45, 212, 191, 0.6);
-  box-shadow: inset 0 0 35px rgba(45, 212, 191, 0.3);
+.cool-slice--zero.is-centered {
+  border-color: rgba(45, 212, 191, 0.85) !important;
+  box-shadow: inset 0 0 45px rgba(20, 184, 166, 0.5), 0 0 35px rgba(15, 118, 110, 0.4) !important;
 }
 
 /* 3: Cool Berry Mix (Kırmızı & Bordo) */
 .cool-slice--berry::before {
   background: radial-gradient(circle at 50% 60%, #f43f5e 0%, #be123c 40%, #4c0519 100%);
 }
-.cool-slice--berry:hover {
-  border-color: rgba(251, 113, 133, 0.6);
-  box-shadow: inset 0 0 35px rgba(251, 113, 133, 0.3);
+.cool-slice--berry.is-centered {
+  border-color: rgba(251, 113, 133, 0.85) !important;
+  box-shadow: inset 0 0 45px rgba(244, 63, 94, 0.5), 0 0 35px rgba(190, 18, 60, 0.4) !important;
 }
 
 /* 4: Cool Mango Mix (Turuncu & Derin Amber) */
 .cool-slice--mango::before {
   background: radial-gradient(circle at 50% 60%, #f97316 0%, #c2410c 40%, #431407 100%);
 }
-.cool-slice--mango:hover {
-  border-color: rgba(253, 186, 116, 0.6);
-  box-shadow: inset 0 0 35px rgba(253, 186, 116, 0.3);
+.cool-slice--mango.is-centered {
+  border-color: rgba(253, 186, 116, 0.85) !important;
+  box-shadow: inset 0 0 45px rgba(249, 115, 22, 0.5), 0 0 35px rgba(194, 65, 12, 0.4) !important;
 }
 
 /* 5: Cool Sour Mix Böğürtlen (Mor & Viyole) */
 .cool-slice--bogurtlen::before {
   background: radial-gradient(circle at 50% 60%, #a855f7 0%, #6b21a8 40%, #2e1065 100%);
 }
-.cool-slice--bogurtlen:hover {
-  border-color: rgba(216, 180, 254, 0.6);
-  box-shadow: inset 0 0 35px rgba(216, 180, 254, 0.3);
+.cool-slice--bogurtlen.is-centered {
+  border-color: rgba(216, 180, 254, 0.85) !important;
+  box-shadow: inset 0 0 45px rgba(168, 85, 247, 0.5), 0 0 35px rgba(107, 33, 168, 0.4) !important;
 }
 
 /* 6: Cool Sour Mix Elma (Elektrik Elma Yeşili & Zümrüt) */
 .cool-slice--elma::before {
   background: radial-gradient(circle at 50% 60%, #4ade80 0%, #16a34a 40%, #064e3b 100%);
 }
-.cool-slice--elma:hover {
-  border-color: rgba(134, 239, 172, 0.6);
-  box-shadow: inset 0 0 35px rgba(134, 239, 172, 0.3);
+.cool-slice--elma.is-centered {
+  border-color: rgba(134, 239, 172, 0.85) !important;
+  box-shadow: inset 0 0 45px rgba(74, 222, 128, 0.5), 0 0 35px rgba(22, 163, 74, 0.4) !important;
 }
 
-/* Hover Accordion & Glow activation */
-.cool-roster:hover .cool-roster-slice {
-  flex: 0.82;
-  opacity: 0.65;
-}
+/* Desktop Only Hover Rules for Cool */
+@media (hover: hover) and (pointer: fine) {
+  .cool-slice--lime:hover {
+    border-color: rgba(74, 222, 128, 0.85);
+    box-shadow: inset 0 0 45px rgba(34, 197, 94, 0.5), 0 0 35px rgba(22, 163, 74, 0.4);
+  }
+  .cool-slice--zero:hover {
+    border-color: rgba(45, 212, 191, 0.85);
+    box-shadow: inset 0 0 45px rgba(20, 184, 166, 0.5), 0 0 35px rgba(15, 118, 110, 0.4);
+  }
+  .cool-slice--berry:hover {
+    border-color: rgba(251, 113, 133, 0.85);
+    box-shadow: inset 0 0 45px rgba(244, 63, 94, 0.5), 0 0 35px rgba(190, 18, 60, 0.4);
+  }
+  .cool-slice--mango:hover {
+    border-color: rgba(253, 186, 116, 0.85);
+    box-shadow: inset 0 0 45px rgba(249, 115, 22, 0.5), 0 0 35px rgba(194, 65, 12, 0.4);
+  }
+  .cool-slice--bogurtlen:hover {
+    border-color: rgba(216, 180, 254, 0.85);
+    box-shadow: inset 0 0 45px rgba(168, 85, 247, 0.5), 0 0 35px rgba(107, 33, 168, 0.4);
+  }
+  .cool-slice--elma:hover {
+    border-color: rgba(134, 239, 172, 0.85);
+    box-shadow: inset 0 0 45px rgba(74, 222, 128, 0.5), 0 0 35px rgba(22, 163, 74, 0.4);
+  }
 
-.cool-roster-slice:hover {
-  flex: 1.85 !important;
-  opacity: 1 !important;
-  z-index: 10;
-}
+  .cool-roster:hover .cool-roster-slice {
+    flex: 0.82;
+    opacity: 0.65;
+  }
 
-.cool-roster-slice:hover::before {
-  opacity: 0.96;
+  .cool-roster-slice:hover {
+    flex: 1.85 !important;
+    opacity: 1 !important;
+    z-index: 10;
+  }
+
+  .cool-roster-slice:hover::before {
+    opacity: 0.98;
+  }
 }
 
 /* 3D Bottle Image & Floating Shadow - 60 FPS GPU Accelerated */
