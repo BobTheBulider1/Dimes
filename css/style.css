@@ -21,6 +21,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  touch-action: pan-y;
 }
 
 body {
@@ -30,6 +32,7 @@ body {
   color: var(--ink);
   background-color: var(--cream);
   overflow-x: hidden;
+  touch-action: pan-y;
 }
 
 a {
@@ -213,8 +216,10 @@ ul, ol {
   transition: transform 0.25s ease;
 }
 
-.logo-img:hover {
-  transform: scale(1.04);
+@media (hover: hover) and (pointer: fine) {
+  .logo-img:hover {
+    transform: scale(1.04);
+  }
 }
 
 /* Nav links inside White Navbar */
@@ -471,7 +476,7 @@ ul, ol {
   overflow: hidden;
 }
 
-/* Full Hero Photo Background - Crisp, High-Res & Responsive */
+/* Full Hero Video Background - Natural, Static & Crisp */
 .hero-video-bg {
   position: absolute;
   inset: 0;
@@ -483,7 +488,6 @@ ul, ol {
   contain: strict;
 }
 
-.hero-bg-img,
 .hero-bg-video {
   width: 100%;
   height: 100%;
@@ -492,21 +496,19 @@ ul, ol {
   opacity: 1;
   transform: none !important;
   transition: none !important;
-  display: block;
 }
 
-/* Minimal overlay - Crisp hero photo, high readability without bottom washout */
+/* Minimal overlay - Only subtle gradient so video is 100% vivid & visible */
 .hero-smoky-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(0, 0, 0, 0.22) 35%,
-    rgba(0, 0, 0, 0) 65%,
-    rgba(0, 0, 0, 0.15) 94%,
-    rgba(250, 246, 240, 0.25) 100%
+    rgba(0, 0, 0, 0.42) 0%,
+    rgba(0, 0, 0, 0.18) 45%,
+    rgba(0, 0, 0, 0.55) 82%,
+    rgba(250, 246, 240, 1) 100%
   );
   pointer-events: none;
 }
@@ -668,13 +670,19 @@ section {
   box-shadow: var(--shadow-card);
 }
 
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-}
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
 
-.product-card:nth-child(even):hover {
-  transform: translateY(calc(2.5rem - 6px));
+  .product-card:nth-child(even):hover {
+    transform: translateY(calc(2.5rem - 6px));
+  }
+
+  .product-card:hover .fruit-art {
+    transform: scale(1.08) rotate(-3deg);
+  }
 }
 
 .product-card-visual {
@@ -692,10 +700,6 @@ section {
   position: relative;
   z-index: 1;
   transition: transform 0.4s var(--ease);
-}
-
-.product-card:hover .fruit-art {
-  transform: scale(1.08) rotate(-3deg);
 }
 
 .product-card-body {
@@ -1020,8 +1024,10 @@ section {
   transition: transform 0.3s ease;
 }
 
-.values-logo-img:hover {
-  transform: scale(1.06);
+@media (hover: hover) and (pointer: fine) {
+  .values-logo-img:hover {
+    transform: scale(1.06);
+  }
 }
 
 .values .section-desc {
@@ -1238,15 +1244,6 @@ section {
 .sustainability-card:nth-child(4) p {
   color: #1e40af;
 }
-.sustainability-card:nth-child(4):hover {
-  box-shadow: 0 25px 50px rgba(37, 99, 235, 0.22);
-}
-
-.sustainability-card:hover {
-  transform: rotate(0deg) translateY(-8px) scale(1.02) !important;
-  z-index: 10;
-}
-
 .sustainability-icon {
   width: 52px;
   height: 52px;
@@ -1258,8 +1255,26 @@ section {
   transition: transform 0.3s var(--ease);
 }
 
-.sustainability-card:hover .sustainability-icon {
-  transform: scale(1.1) rotate(4deg);
+@media (hover: hover) and (pointer: fine) {
+  .sustainability-card:nth-child(1):hover {
+    box-shadow: 0 25px 50px rgba(22, 163, 74, 0.22);
+  }
+  .sustainability-card:nth-child(2):hover {
+    box-shadow: 0 25px 50px rgba(2, 132, 199, 0.22);
+  }
+  .sustainability-card:nth-child(3):hover {
+    box-shadow: 0 25px 50px rgba(217, 119, 6, 0.22);
+  }
+  .sustainability-card:nth-child(4):hover {
+    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.22);
+  }
+  .sustainability-card:hover {
+    transform: rotate(0deg) translateY(-8px) scale(1.02) !important;
+    z-index: 10;
+  }
+  .sustainability-card:hover .sustainability-icon {
+    transform: scale(1.1) rotate(4deg);
+  }
 }
 
 .sustainability-icon svg {
@@ -1380,10 +1395,12 @@ section {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.3s ease;
 }
 
-.cta-btn-primary:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45), 0 0 0 2px rgba(255, 255, 255, 0.8);
-  background: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+  .cta-btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45), 0 0 0 2px rgba(255, 255, 255, 0.8);
+    background: #ffffff;
+  }
 }
 
 .cta-btn-icon {
@@ -1434,8 +1451,10 @@ section {
   transition: transform 0.3s ease;
 }
 
-.cta-btn-primary:hover .cta-arrow-icon {
-  transform: translateX(4px);
+@media (hover: hover) and (pointer: fine) {
+  .cta-btn-primary:hover .cta-arrow-icon {
+    transform: translateX(4px);
+  }
 }
 
 .cta-trust {
@@ -1590,10 +1609,10 @@ section {
 
 @keyframes ticker {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -1815,7 +1834,6 @@ section {
     justify-content: center !important;
   }
 
-  .hero-bg-img,
   .hero-bg-video {
     transform: none !important;
     transition: none !important;
@@ -2362,11 +2380,18 @@ section {
     filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nektar-roster-slice:hover .nektar-roster-img {
-  transform: translateY(-16px) scale(1.15) rotate(3deg) translateZ(0);
-  filter:
-    drop-shadow(0 28px 35px rgba(0, 0, 0, 0.8))
-    drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+@media (hover: hover) and (pointer: fine) {
+  .nektar-roster-slice:hover .nektar-roster-img {
+    transform: translateY(-16px) scale(1.15) rotate(3deg) translateZ(0);
+    filter:
+      drop-shadow(0 28px 35px rgba(0, 0, 0, 0.8))
+      drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+  }
+
+  .nektar-roster-slice:hover .nektar-roster-badge {
+    background: var(--white);
+    color: #170703;
+  }
 }
 
 /* Top Badge inside slice */
@@ -2384,11 +2409,6 @@ section {
   backdrop-filter: blur(4px);
   transition: background 0.3s ease, color 0.3s ease;
   white-space: nowrap;
-}
-
-.nektar-roster-slice:hover .nektar-roster-badge {
-  background: var(--white);
-  color: #170703;
 }
 
 /* Bottom Info inside slice */
@@ -2927,23 +2947,11 @@ section {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
-/* Universal 3D Tilt, Elevation & Rotation for ALL 6 Products on Hover */
-.cool-roster-slice:hover .cool-roster-img {
-  transform: translateY(-16px) scale(1.16) rotate(3.5deg) translateZ(0);
-  filter:
-    drop-shadow(0 28px 35px rgba(0, 0, 0, 0.8))
-    drop-shadow(0 12px 14px rgba(0, 0, 0, 0.5));
-}
-
 /* Cool Lime — Özel Boyut Dengesi */
 .cool-roster-img--lime {
   max-height: 258px;
   max-width: 142px;
   transform: scale(1.05);
-}
-
-.cool-roster-slice:hover .cool-roster-img--lime {
-  transform: translateY(-16px) scale(1.21) rotate(3.5deg);
 }
 
 /* Cool Lime Zero — Özel Boyut Dengesi */
@@ -2953,8 +2961,26 @@ section {
   transform: scale(0.97);
 }
 
-.cool-roster-slice:hover .cool-roster-img--zero {
-  transform: translateY(-15px) scale(1.12) rotate(3.5deg);
+@media (hover: hover) and (pointer: fine) {
+  .cool-roster-slice:hover .cool-roster-img {
+    transform: translateY(-16px) scale(1.16) rotate(3.5deg) translateZ(0);
+    filter:
+      drop-shadow(0 28px 35px rgba(0, 0, 0, 0.8))
+      drop-shadow(0 12px 14px rgba(0, 0, 0, 0.5));
+  }
+
+  .cool-roster-slice:hover .cool-roster-img--lime {
+    transform: translateY(-16px) scale(1.21) rotate(3.5deg);
+  }
+
+  .cool-roster-slice:hover .cool-roster-img--zero {
+    transform: translateY(-15px) scale(1.12) rotate(3.5deg);
+  }
+
+  .cool-roster-slice:hover .cool-roster-badge {
+    background: var(--white);
+    color: #090d16;
+  }
 }
 
 /* Top Badge inside slice */
@@ -2972,11 +2998,6 @@ section {
   backdrop-filter: blur(4px);
   transition: background 0.3s ease, color 0.3s ease;
   white-space: nowrap;
-}
-
-.cool-roster-slice:hover .cool-roster-badge {
-  background: var(--white);
-  color: #090d16;
 }
 
 /* Bottom Info inside slice */
@@ -3648,12 +3669,20 @@ section {
     will-change: auto !important;
   }
 
-  /* Kill the infinite ticker animation on mobile — it runs even offscreen and steals GPU frames */
+  /* Values: Smooth 60/120fps hardware-accelerated infinite moving marquee band on mobile */
   .values-grid {
-    animation: none !important;
-    flex-wrap: wrap !important;
-    width: auto !important;
-    justify-content: center !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    animation: ticker 28s linear infinite !important;
+    width: max-content !important;
+    transform: translate3d(0, 0, 0) !important;
+    will-change: transform !important;
+  }
+
+  .value-card {
+    flex: 0 0 auto !important;
+    padding: var(--space-lg) var(--space-xl) !important;
+    white-space: nowrap !important;
   }
 
   /* Kill CSS filters on mobile — each filter recalculates every pixel every frame during scroll */
@@ -3661,6 +3690,21 @@ section {
   .values-logo-img {
     filter: none !important;
     -webkit-filter: none !important;
+  }
+
+  /* Mobile: Complete prevention of unwanted photo zoom or jumps on touch scroll */
+  .fruit-art,
+  .product-card,
+  .sustainability-card,
+  .sustainability-icon,
+  .nektar-roster-img,
+  .cool-roster-img,
+  .values-logo-img,
+  .logo-img,
+  .hero-bg-video {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
   }
 
   /* Defer rendering of offscreen sections — browser skips layout/paint until they scroll near */
