@@ -448,13 +448,12 @@ ul, ol {
    HERO SECTION
    Full viewport, asymmetric, with grain texture
    ============================================ */
-/* Hero Section - Compact Sleek Viewport */
+/* Hero Section - Full Viewport Screen Coverage */
 .hero-scroll-section {
   position: relative;
   width: 100%;
-  height: 62vh;
-  min-height: 480px;
-  max-height: 600px;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: #1c1917;
   overflow: hidden;
 }
@@ -462,11 +461,12 @@ ul, ol {
 .hero-sticky-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4.5rem 1rem 2rem;
+  padding: 6rem 1rem 3rem;
   overflow: hidden;
 }
 
@@ -490,18 +490,12 @@ ul, ol {
   transform: scale(1.05);
 }
 
-/* Cinematic overlay — Keeps text ultra readable while letting full video shine through */
+/* Clean transparent overlay — zero black shading on video */
 .hero-smoky-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.25) 40%,
-    rgba(0, 0, 0, 0.5) 80%,
-    rgba(0, 0, 0, 0.75) 100%
-  );
+  background: transparent;
   pointer-events: none;
 }
 
@@ -570,19 +564,16 @@ ul, ol {
   60% { transform: translateY(-3px); }
 }
 
-/* Hero stats — Frosted Glass High-Contrast Container */
+/* Hero stats — Clean Transparent Counter Layout */
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
   margin-top: var(--space-2xl);
-  padding: 1.5rem 2rem;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   position: relative;
   z-index: 3;
 }
@@ -1817,11 +1808,11 @@ section {
     padding: 0.85rem;
   }
 
-  /* Mobile Hero Optimization (Compact sleek header height) */
+  /* Mobile Hero Optimization (Natural scrolling, 120fps fluid touch response) */
   .hero-scroll-section {
     height: auto !important;
-    min-height: 55vh !important;
-    max-height: 480px !important;
+    min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
   }
 
@@ -1829,9 +1820,9 @@ section {
     position: relative !important;
     top: 0 !important;
     height: auto !important;
-    min-height: 55vh !important;
-    max-height: 480px !important;
-    padding: 4.5rem 1rem 2rem !important;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 6rem 1rem 3.5rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1878,12 +1869,10 @@ section {
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 0.35rem !important;
     margin-top: 1.25rem !important;
-    padding: 0.85rem 0.5rem !important;
-    border-radius: var(--radius-lg) !important;
-    background: rgba(0, 0, 0, 0.65) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
     width: 100%;
   }
 
