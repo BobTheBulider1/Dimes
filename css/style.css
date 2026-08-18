@@ -482,11 +482,17 @@ ul, ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top; /* Focus & expand video towards the top */
+  object-position: center center;
   opacity: 1;
   filter: brightness(0.94) contrast(1.08) saturate(1.15);
-  transform: scale(1.1) translateY(-15px);
-  transition: transform 0.1s linear;
+  transform: none;
+}
+
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .hero-bg-video {
+    object-position: center top;
+    transition: transform 0.1s linear;
+  }
 }
 
 /* Minimal overlay - Only subtle gradient so video is 100% vivid & visible */
@@ -1838,6 +1844,9 @@ section {
 
   .hero-bg-video {
     transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    object-position: center center !important;
     filter: brightness(0.9) contrast(1.05) saturate(1.1) !important;
   }
 

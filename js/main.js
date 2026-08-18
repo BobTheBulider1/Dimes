@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (header) {
           header.classList.toggle('scrolled', window.pageYOffset > 50);
         }
-        if (heroScrollSection && window.innerWidth >= 900 && heroBgVideo) {
+        const isDesktop = window.innerWidth >= 1024 && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        if (isDesktop && heroScrollSection && heroBgVideo) {
           const rect = heroScrollSection.getBoundingClientRect();
           const scrollableDistance = heroScrollSection.offsetHeight - window.innerHeight;
           if (scrollableDistance > 0) {
@@ -28,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
               heroScrollHint.style.opacity = progress > 0.05 ? '0' : '0.9';
             }
           }
+        } else if (heroBgVideo && heroBgVideo.style.transform !== 'none') {
+          // Strictly disable all zooming / transformations on mobile & touch screens
+          heroBgVideo.style.transform = 'none';
         }
         isScrolling = false;
       });
