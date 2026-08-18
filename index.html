@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dimes — Türkiye'nin Meyve Suyu</title>
+  <meta name="description" content="Dimes, 1962'den bu yana Türkiye'nin en sevilen meyve suyu markası. Tokat'tan dünyaya, %100 doğal meyve suları.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assests/logo.png">
+  <link rel="apple-touch-icon" href="assests/logo.png">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="#" class="logo" aria-label="Dimes Ana Sayfa">
+        <img src="assests/logo.png" alt="Dimes Logo" class="logo-img">
+      </a>
+
+      <!-- Mobile Backdrop Overlay -->
+      <div class="nav-backdrop" id="navBackdrop"></div>
+
+      <!-- Navigation (Desktop Bar & Mobile Left Drawer) -->
+      <nav class="nav" id="mainNav" aria-label="Ana menü">
+        <!-- Mobile Drawer Header -->
+        <div class="mobile-drawer-header">
+          <img src="assests/logo.png" alt="Dimes Logo" class="mobile-drawer-logo">
+          <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Menüyü Kapat">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="#products" class="nav-link">Ürünler</a></li>
+          
+          <!-- İçecek Aileleri Dropdown Item -->
+          <li class="nav-dropdown-item">
+            <a href="javascript:void(0)" class="nav-link nav-link--dropdown" id="dropdownToggle">
+              İçecek Aileleri
+              <svg class="dropdown-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="nav-dropdown-menu">
+              <a href="#nektar-family" class="dropdown-link">
+                <div class="dropdown-link-text">
+                  <strong>DİMES Nektar Ailesi</strong>
+                  <small>Geleneksel & Yoğun Meyve Lezzeti</small>
+                </div>
+              </a>
+              <a href="#cool-family" class="dropdown-link">
+                <div class="dropdown-link-text">
+                  <strong>DİMES Cool Ailesi</strong>
+                  <small>Mix Et, Serinle! 1 Kutudan 5 Bardak</small>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li><a href="#story" class="nav-link">Hikayemiz</a></li>
+          <li><a href="#values" class="nav-link">Rakamlar</a></li>
+          <li><a href="#sustainability" class="nav-link">Sürdürülebilirlik</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">İletişim</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="Menüyü aç" aria-expanded="false" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== HERO (Pinned Video Scrubbing) ========== -->
+  <section class="hero-scroll-section" id="hero">
+    <div class="hero-sticky-wrapper">
+      <!-- Full Background Video - 100% Vivid & Bright -->
+      <div class="hero-video-bg">
+        <video class="hero-bg-video" id="heroBgVideo" autoplay loop muted playsinline preload="auto">
+          <source src="assests/Create_a_premium_photorealist (1).mp4" type="video/mp4">
+        </video>
+        <div class="hero-smoky-overlay" id="heroSmokyOverlay"></div>
+      </div>
+
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg-circle"></div>
+        <div class="hero-bg-circle"></div>
+        <div class="hero-bg-circle"></div>
+      </div>
+
+      <div class="container hero-container">
+        <h1 class="hero-title fade-in">
+          Toprağın Verdiği,<br><span class="highlight">Bardağa Sığan</span>
+        </h1>
+        <p class="hero-subtitle fade-in">
+          Tokat'tan başlayan yolculuk, bugün elli ülkenin sofrasında. Katkısız meyve suları, 1962'den beri.
+        </p>
+
+        <!-- Hero Stats with counters -->
+        <div class="hero-stats fade-in">
+          <div class="hero-stat">
+            <div class="hero-stat-value"><span class="counter" data-target="62">0</span></div>
+            <div class="hero-stat-label">Yıldır Üretimde</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value"><span class="counter" data-target="150">0</span><span class="stat-plus">+</span></div>
+            <div class="hero-stat-label">Farklı Ürün</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value"><span class="counter" data-target="50">0</span><span class="stat-plus">+</span></div>
+            <div class="hero-stat-label">Ülkeye İhracat</div>
+          </div>
+        </div>
+
+        <!-- Scroll Hint Icon -->
+        <div class="hero-scroll-hint" id="heroScrollHint">
+          <span>Videoyu Oynatmak İçin Kaydırın</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m-7-7 7 7 7-7"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Organic Divider: cream → white ── -->
+  <svg class="section-divider" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,40 C240,80 480,0 720,50 C960,100 1200,20 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+  </svg>
+
+  <!-- ========== NEKTAR FAMILY SECTION ========== -->
+  <section class="nektar-family" id="nektar-family">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-eyebrow">İçecek Ailelerimiz</div>
+        <h2 class="section-title">DİMES Nektar</h2>
+        <p class="section-desc">Anadolu'nun en taze meyvelerinden geleneksel ve zengin lezzet mirası.</p>
+      </div>
+
+      <!-- Interactive Mix & Taste Guide Banner -->
+      <div class="nektar-banner fade-in">
+        <div class="nektar-banner-content">
+          <h3 class="nektar-banner-title">Doğadan Bardağa! <span class="nektar-spark">DİMES Nektar</span> Ailesi</h3>
+          <p class="nektar-banner-desc">
+            Anadolu'nun en taze meyveleri, yoğun meyve püresi ve ipeksi kıvamıyla bardağında buluşuyor. Katkısız, doğal ve her yudumda gerçek meyve hissi!
+          </p>
+          <div class="nektar-mix-steps">
+            <div class="nektar-step">
+              <span class="nektar-step-num">1</span>
+              <span>Özenle Seçilmiş Meyveler</span>
+            </div>
+            <span class="nektar-step-arrow">→</span>
+            <div class="nektar-step">
+              <span class="nektar-step-num">2</span>
+              <span>Doğal Püre & İpeksi Kıvam</span>
+            </div>
+            <span class="nektar-step-arrow">→</span>
+            <div class="nektar-step">
+              <span class="nektar-step-num">3</span>
+              <span>Çalkala, Soğuk İç & Tadını Çıkar!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nektar Character Selection Roster Panel -->
+      <div class="nektar-roster-frame fade-in" id="nektarRosterFrame">
+        <!-- Back Button for returning to full roster -->
+        <button class="nektar-roster-back" id="nektarRosterBack" aria-label="Tüm Aileye Dön">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5m7 7-7-7 7-7"/></svg>
+          Tüm Aileye Dön
+        </button>
+
+        <div class="nektar-roster" id="nektarRoster">
+
+          <!-- 1: Şeftali Nektarı -->
+          <div class="nektar-roster-slice nektar-slice--seftali" data-product="seftali">
+            <span class="nektar-roster-badge">Şeftali Nektarı</span>
+            <div class="nektar-roster-visual">
+              <img src="assests/Nektarı Ailesi/Dimes Şeftali Nektarı.png" alt="DİMES Şeftali Nektarı" class="nektar-roster-img">
+            </div>
+            <div class="nektar-roster-info">
+              <h4 class="nektar-roster-title">Şeftali</h4>
+              <p class="nektar-roster-tag">Bursa Şeftalisi</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="nektar-roster-detail">
+              <h3 class="nektar-detail-title">DİMES Şeftali Nektarı</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="nektar-nutrition-box">
+                <div class="nektar-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="nektar-nut-badge">100 ml</span>
+                </div>
+                <div class="nektar-nutrition-grid">
+                  <div class="nektar-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>185 / 43</strong></div>
+                  <div class="nektar-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>11</strong></div>
+                  <div class="nektar-nut-row"><span>Şeker / Sugar (g)</span><strong>11</strong></div>
+                  <div class="nektar-nut-row"><span>Protein / Protein (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Tuz / Salt (g)</span><strong>0,05</strong></div>
+                </div>
+                <div class="nektar-nutrition-footer">
+                  <span>Doğal Meyve Püresi • Katkısız Gerçek Lezzet</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2: Tropikal Meyveler İçeceği -->
+          <div class="nektar-roster-slice nektar-slice--tropikal" data-product="tropikal">
+            <span class="nektar-roster-badge">Tropikal Mix</span>
+            <div class="nektar-roster-visual">
+              <img src="assests/Nektarı Ailesi/Dimes Tropikal Meyveler İçeceği.png" alt="DİMES Tropikal Meyveler İçeceği" class="nektar-roster-img">
+            </div>
+            <div class="nektar-roster-info">
+              <h4 class="nektar-roster-title">Tropikal</h4>
+              <p class="nektar-roster-tag">Ananas & Mango</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="nektar-roster-detail">
+              <h3 class="nektar-detail-title">DİMES Tropikal Meyveler</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="nektar-nutrition-box">
+                <div class="nektar-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="nektar-nut-badge">100 ml</span>
+                </div>
+                <div class="nektar-nutrition-grid">
+                  <div class="nektar-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>172 / 40</strong></div>
+                  <div class="nektar-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>9,8</strong></div>
+                  <div class="nektar-nut-row"><span>Şeker / Sugar (g)</span><strong>9,8</strong></div>
+                  <div class="nektar-nut-row"><span>Protein / Protein (g)</span><strong>&lt;0,5</strong></div>
+                  <div class="nektar-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Tuz / Salt (g)</span><strong>0</strong></div>
+                </div>
+                <div class="nektar-nutrition-footer">
+                  <span>Tropikal Meyve Şöleni • Anında Enerji</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3: Mango İçeceği -->
+          <div class="nektar-roster-slice nektar-slice--mango" data-product="mango">
+            <span class="nektar-roster-badge">Mango Mix</span>
+            <div class="nektar-roster-visual">
+              <img src="assests/Nektarı Ailesi/Dimes Mango Aromalı.png" alt="DİMES Mango İçeceği" class="nektar-roster-img">
+            </div>
+            <div class="nektar-roster-info">
+              <h4 class="nektar-roster-title">Mango</h4>
+              <p class="nektar-roster-tag">Tropikal Mango</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="nektar-roster-detail">
+              <h3 class="nektar-detail-title">DİMES Mango İçeceği</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="nektar-nutrition-box">
+                <div class="nektar-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="nektar-nut-badge">100 ml</span>
+                </div>
+                <div class="nektar-nutrition-grid">
+                  <div class="nektar-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>200 / 47</strong></div>
+                  <div class="nektar-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>12</strong></div>
+                  <div class="nektar-nut-row"><span>Şeker / Sugar (g)</span><strong>11</strong></div>
+                  <div class="nektar-nut-row"><span>Protein / Protein (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Tuz / Salt (g)</span><strong>0,03</strong></div>
+                </div>
+                <div class="nektar-nutrition-footer">
+                  <span>Yoğun Mango Aroması • Kadifemsi Kıvam</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4: Orman Meyveleri İçeceği -->
+          <div class="nektar-roster-slice nektar-slice--orman" data-product="orman">
+            <span class="nektar-roster-badge">Orman Meyveleri</span>
+            <div class="nektar-roster-visual">
+              <img src="assests/Nektarı Ailesi/Dimes Orman Meyveleri.png" alt="DİMES Orman Meyveleri İçeceği" class="nektar-roster-img">
+            </div>
+            <div class="nektar-roster-info">
+              <h4 class="nektar-roster-title">Orman Meyveleri</h4>
+              <p class="nektar-roster-tag">Böğürtlen & Çilek</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="nektar-roster-detail">
+              <h3 class="nektar-detail-title">DİMES Orman Meyveleri</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="nektar-nutrition-box">
+                <div class="nektar-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="nektar-nut-badge">100 ml</span>
+                </div>
+                <div class="nektar-nutrition-grid">
+                  <div class="nektar-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>161 / 38</strong></div>
+                  <div class="nektar-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>9,5</strong></div>
+                  <div class="nektar-nut-row"><span>Şeker / Sugar (g)</span><strong>7,8</strong></div>
+                  <div class="nektar-nut-row"><span>Protein / Protein (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Tuz / Salt (g)</span><strong>0</strong></div>
+                </div>
+                <div class="nektar-nutrition-footer">
+                  <span>Böğürtlen, Çilek, Ahududu • Antioksidan Kaynağı</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5: Ananas İçeceği -->
+          <div class="nektar-roster-slice nektar-slice--ananas" data-product="ananas">
+            <span class="nektar-roster-badge">Ananas Mix</span>
+            <div class="nektar-roster-visual">
+              <img src="assests/Nektarı Ailesi/Dimes_Ananaslı-removebg-preview.png" alt="DİMES Ananas İçeceği" class="nektar-roster-img">
+            </div>
+            <div class="nektar-roster-info">
+              <h4 class="nektar-roster-title">Ananas</h4>
+              <p class="nektar-roster-tag">Altın Ananas</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="nektar-roster-detail">
+              <h3 class="nektar-detail-title">DİMES Ananas İçeceği</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="nektar-nutrition-box">
+                <div class="nektar-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="nektar-nut-badge">100 ml</span>
+                </div>
+                <div class="nektar-nutrition-grid">
+                  <div class="nektar-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>214 / 50</strong></div>
+                  <div class="nektar-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>12</strong></div>
+                  <div class="nektar-nut-row"><span>Şeker / Sugar (g)</span><strong>13</strong></div>
+                  <div class="nektar-nut-row"><span>Protein / Protein (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="nektar-nut-row"><span>Tuz / Salt (g)</span><strong>0,06</strong></div>
+                </div>
+                <div class="nektar-nutrition-footer">
+                  <span>Tropikal Altın Ananas • Canlandırıcı Dinamik Tat</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COOL FAMILY SECTION ========== -->
+  <section class="cool-family" id="cool-family">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-eyebrow">İçecek Ailelerimiz</div>
+        <h2 class="section-title">DİMES COOL</h2>
+        <p class="section-desc">Evde, sokakta, her anında modunu yükselten ferahlatıcı lezzet ailesi.</p>
+      </div>
+
+      <!-- Cool Banner Feature -->
+      <div class="cool-banner fade-in">
+        <div class="cool-banner-content">
+          <h3 class="cool-banner-title">Mix et, Serinle! <span class="cool-spark">DİMES Cool</span> Ailesi</h3>
+          <p class="cool-banner-desc">
+            1 kutu DİMES Cool Özü ile tam 5 bardak enfes ve buz gibi içecek hazırla. Sadece su ve buz ekle, kendi ferahlığını kendin yarat!
+          </p>
+          <div class="cool-mix-steps">
+            <div class="cool-step">
+              <span class="cool-step-num">1</span>
+              <span>1 Ölçek Cool Özü</span>
+            </div>
+            <span class="cool-step-arrow">→</span>
+            <div class="cool-step">
+              <span class="cool-step-num">2</span>
+              <span>4 Ölçek Soğuk Su & Buz</span>
+            </div>
+            <span class="cool-step-arrow">→</span>
+            <div class="cool-step">
+              <span class="cool-step-num">3</span>
+              <span>Çalkala & Ferahla!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cool Family Game Character Selection Roster Panel (6 Vertical Slices) -->
+      <div class="cool-roster-frame fade-in" id="coolRosterFrame">
+        <!-- Back Button for returning to full roster -->
+        <button class="cool-roster-back" id="coolRosterBack" aria-label="Tüm Aileye Dön">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5m7 7-7-7 7-7"/></svg>
+          Tüm Aileye Dön
+        </button>
+
+        <div class="cool-roster" id="coolRoster">
+
+          <!-- 1: Cool Lime -->
+          <div class="cool-roster-slice cool-slice--lime" data-product="lime">
+            <span class="cool-roster-badge">Cool Lime</span>
+            <div class="cool-roster-visual">
+              <img src="assests/COOL ailesi/Cool Lime.png" alt="Dimes Cool Lime" class="cool-roster-img cool-roster-img--lime">
+            </div>
+            <div class="cool-roster-info">
+              <h4 class="cool-roster-title">Cool Lime</h4>
+              <p class="cool-roster-tag">Lime & Nane</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="cool-roster-detail">
+              <h3 class="cool-detail-title">DİMES COOL Lime Mix</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="cool-nutrition-box">
+                <div class="cool-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="cool-nut-badge">100 ml</span>
+                </div>
+                <div class="cool-nutrition-grid">
+                  <div class="cool-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>141 / 43</strong></div>
+                  <div class="cool-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>8,3</strong></div>
+                  <div class="cool-nut-row"><span>Şeker / Sugar (g)</span><strong>8,1</strong></div>
+                  <div class="cool-nut-row"><span>Protein / Protein (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Tuz / Salt (g)</span><strong>0</strong></div>
+                </div>
+                <div class="cool-nutrition-footer">
+                  <span>310 ml Öz → 1000 ml Hazır İçecek</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2: Cool Lime Zero Sugar -->
+          <div class="cool-roster-slice cool-slice--zero" data-product="zero">
+            <span class="cool-roster-badge">Zero Sugar</span>
+            <div class="cool-roster-visual">
+              <img src="assests/COOL ailesi/Cool Lime ZERO SUGAR.png" alt="Dimes Cool Lime Zero Sugar" class="cool-roster-img cool-roster-img--zero">
+            </div>
+            <div class="cool-roster-info">
+              <h4 class="cool-roster-title">Lime Zero</h4>
+              <p class="cool-roster-tag">Sıfır Şeker</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="cool-roster-detail">
+              <h3 class="cool-detail-title">DİMES COOL Lime Zero</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="cool-nutrition-box">
+                <div class="cool-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="cool-nut-badge">100 ml</span>
+                </div>
+                <div class="cool-nutrition-grid">
+                  <div class="cool-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>8 / 2</strong></div>
+                  <div class="cool-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>0,4</strong></div>
+                  <div class="cool-nut-row"><span>Şeker / Sugar (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Protein / Protein (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Tuz / Salt (g)</span><strong>0</strong></div>
+                </div>
+                <div class="cool-nutrition-footer">
+                  <span>310 ml Öz → 1000 ml Hazır İçecek • Sıfır Şeker</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3: Cool Berry Mix -->
+          <div class="cool-roster-slice cool-slice--berry" data-product="berry">
+            <span class="cool-roster-badge">Berry Mix</span>
+            <div class="cool-roster-visual">
+              <img src="assests/COOL ailesi/Cool Berry Mix.png" alt="Dimes Cool Berry Mix" class="cool-roster-img">
+            </div>
+            <div class="cool-roster-info">
+              <h4 class="cool-roster-title">Berry Mix</h4>
+              <p class="cool-roster-tag">Orman Meyveleri</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="cool-roster-detail">
+              <h3 class="cool-detail-title">DİMES COOL Berry Mix</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="cool-nutrition-box">
+                <div class="cool-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="cool-nut-badge">100 ml</span>
+                </div>
+                <div class="cool-nutrition-grid">
+                  <div class="cool-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>139 / 33</strong></div>
+                  <div class="cool-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>8,2</strong></div>
+                  <div class="cool-nut-row"><span>Şeker / Sugar (g)</span><strong>8,0</strong></div>
+                  <div class="cool-nut-row"><span>Protein / Protein (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Tuz / Salt (g)</span><strong>0</strong></div>
+                </div>
+                <div class="cool-nutrition-footer">
+                  <span>310 ml Öz → 1000 ml Hazır İçecek</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4: Cool Mango Mix -->
+          <div class="cool-roster-slice cool-slice--mango" data-product="mango">
+            <span class="cool-roster-badge">Mango Mix</span>
+            <div class="cool-roster-visual">
+              <img src="assests/COOL ailesi/Cool Mango Mix.png" alt="Dimes Cool Mango Mix" class="cool-roster-img">
+            </div>
+            <div class="cool-roster-info">
+              <h4 class="cool-roster-title">Mango Mix</h4>
+              <p class="cool-roster-tag">Mango & Şeftali</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="cool-roster-detail">
+              <h3 class="cool-detail-title">DİMES COOL Mango Mix</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="cool-nutrition-box">
+                <div class="cool-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="cool-nut-badge">100 ml</span>
+                </div>
+                <div class="cool-nutrition-grid">
+                  <div class="cool-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>140 / 33</strong></div>
+                  <div class="cool-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>8,2</strong></div>
+                  <div class="cool-nut-row"><span>Şeker / Sugar (g)</span><strong>8,0</strong></div>
+                  <div class="cool-nut-row"><span>Protein / Protein (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Tuz / Salt (g)</span><strong>0</strong></div>
+                </div>
+                <div class="cool-nutrition-footer">
+                  <span>310 ml Öz → 1000 ml Hazır İçecek</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5: Cool Sour Mix Böğürtlen -->
+          <div class="cool-roster-slice cool-slice--bogurtlen" data-product="bogurtlen">
+            <span class="cool-roster-badge">Sour Mix</span>
+            <div class="cool-roster-visual">
+              <img src="assests/COOL ailesi/Cool Sour Mix Böğürtlen.png" alt="Dimes Cool Sour Mix Böğürtlen" class="cool-roster-img">
+            </div>
+            <div class="cool-roster-info">
+              <h4 class="cool-roster-title">Sour Böğürtlen</h4>
+              <p class="cool-roster-tag">Tatlı & Ekşi</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="cool-roster-detail">
+              <h3 class="cool-detail-title">DİMES COOL Sour Mix Böğürtlen</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="cool-nutrition-box">
+                <div class="cool-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="cool-nut-badge">100 ml</span>
+                </div>
+                <div class="cool-nutrition-grid">
+                  <div class="cool-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>136 / 32</strong></div>
+                  <div class="cool-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>8,0</strong></div>
+                  <div class="cool-nut-row"><span>Şeker / Sugar (g)</span><strong>7,8</strong></div>
+                  <div class="cool-nut-row"><span>Protein / Protein (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Tuz / Salt (g)</span><strong>0</strong></div>
+                </div>
+                <div class="cool-nutrition-footer">
+                  <span>310 ml Öz → 1000 ml Hazır İçecek</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6: Cool Sour Mix Elma -->
+          <div class="cool-roster-slice cool-slice--elma" data-product="elma">
+            <span class="cool-roster-badge">Sour Mix</span>
+            <div class="cool-roster-visual">
+              <img src="assests/COOL ailesi/Cool Sour Mix Elma.png" alt="DİMES Cool Sour Mix Elma" class="cool-roster-img">
+            </div>
+            <div class="cool-roster-info">
+              <h4 class="cool-roster-title">Sour Elma</h4>
+              <p class="cool-roster-tag">Yeşil Elma Ekşisi</p>
+            </div>
+            <!-- Expanded Detail Content -->
+            <div class="cool-roster-detail">
+              <h3 class="cool-detail-title">DİMES COOL Sour Mix Elma</h3>
+
+              <!-- Nutritional Values Table -->
+              <div class="cool-nutrition-box">
+                <div class="cool-nutrition-header">
+                  <span>Besin Değerleri / Nutritional Values</span>
+                  <span class="cool-nut-badge">100 ml</span>
+                </div>
+                <div class="cool-nutrition-grid">
+                  <div class="cool-nut-row"><span>Enerji / Energy (kJ/Kcal)</span><strong>138 / 33</strong></div>
+                  <div class="cool-nut-row"><span>Yağ / Fat (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Doymuş Yağ / Saturates (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Karbonhidrat / Carb (g)</span><strong>8,1</strong></div>
+                  <div class="cool-nut-row"><span>Şeker / Sugar (g)</span><strong>7,9</strong></div>
+                  <div class="cool-nut-row"><span>Protein / Protein (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Lif / Fibre (g)</span><strong>0</strong></div>
+                  <div class="cool-nut-row"><span>Tuz / Salt (g)</span><strong>0</strong></div>
+                </div>
+                <div class="cool-nutrition-footer">
+                  <span>310 ml Öz → 1000 ml Hazır İçecek</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Organic Divider: cyan tint → amber ── -->
+  <svg class="section-divider" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,20 C360,70 720,-10 1080,50 C1260,70 1380,30 1440,20 L1440,80 L0,80 Z" fill="#d4870e"/>
+  </svg>
+
+  <!-- ========== STORY ========== -->
+  <section class="story" id="story">
+    <div class="container">
+      <div class="story-editorial fade-in">
+        
+        <!-- Top Editorial Header -->
+        <div class="story-editorial-header">
+          <h2 class="story-editorial-title">Toprağın Bereketi,<br><span class="story-editorial-spark">Sofraların Değişmeyen Doğallığı</span></h2>
+        </div>
+
+        <!-- Main Editorial Narrative Grid -->
+        <div class="story-editorial-grid">
+          
+          <!-- Left Column: Rich Historical Narrative -->
+          <div class="story-editorial-text">
+            <p class="story-lead">
+              1962 yılında Tokat'ın bereketli topraklarında, Ziraat Yüksek Mühendisi <strong>M. Vasfi Diren</strong> tarafından kurulan yerli bir meyve işleme atölyesiyle başladı yolculuğumuz.
+            </p>
+            <p>
+              Anadolu'nun zengin meyve çeşitliliğini değerlendirmek ve yerli üretime kazandırmak amacıyla atılan bu ilk adım, Türkiye'nin ilk yerli meyve suyu markalarından birinin doğuşuna öncülük etti.
+            </p>
+            <p>
+              Bugün Tokat ve İzmir'deki modern tesislerimizde, binlerce yerel üreticiyle el ele çalışıyor; 5 kıtada 50'den fazla ülkeye ihracat yapıyoruz. 60 yılı aşkın süredir değişmeyen tek şey: <strong>Meyvenin saf doğallığı ve kaliteden ödün vermeyen üretim anlayışımız.</strong>
+            </p>
+          </div>
+
+          <!-- Right Column: Authentic Milestone Chronicle -->
+          <div class="story-timeline-card">
+            <div class="story-timeline-header">
+              <span class="story-timeline-badge">MİRASIN ADIMLARI</span>
+              <h3>60 Yıllık Yolculuk</h3>
+            </div>
+
+            <div class="story-timeline-steps">
+              <div class="story-milestone">
+                <div class="story-milestone-year">1962</div>
+                <div class="story-milestone-info">
+                  <h4>Tokat'ta İlk Damla</h4>
+                  <p>Türkiye'nin ilk yerli meyve suyu üretimi Anadolu'nun kalbinde başladı.</p>
+                </div>
+              </div>
+
+              <div class="story-milestone">
+                <div class="story-milestone-year">1985</div>
+                <div class="story-milestone-info">
+                  <h4>Çiftçiyle El Ele</h4>
+                  <p>Sözleşmeli tarım modeliyle on binlerce çiftçi ailesine sürdürülebilir gelir sağlandı.</p>
+                </div>
+              </div>
+
+              <div class="story-milestone">
+                <div class="story-milestone-year">2000'ler</div>
+                <div class="story-milestone-info">
+                  <h4>Dünyaya Açılan Lezzet</h4>
+                  <p>Avrupa, Orta Doğu ve Asya pazarlarında Türk meyve suyu kalitesini kanıtladı.</p>
+                </div>
+              </div>
+
+              <div class="story-milestone">
+                <div class="story-milestone-year">Bugün</div>
+                <div class="story-milestone-info">
+                  <h4>50+ Ülke, 7 Tesis, Aynı Saflık</h4>
+                  <p>Milyonlarca bardağa sığan katkısız ferahlık geleneği ilk günkü tutkuyla sürüyor.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Organic Divider: amber → green ── -->
+  <svg class="section-divider" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,50 C180,10 360,70 540,30 C720,-10 900,60 1080,30 C1260,0 1380,50 1440,35 L1440,80 L0,80 Z" fill="#1b6b42"/>
+  </svg>
+
+  <!-- ========== VALUES ========== -->
+  <section class="values" id="values">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-eyebrow">Rakamlarla</div>
+        <h2 class="section-title values-title-logo">
+          <img src="assests/logo.png" alt="Dimes" class="values-logo-img"> Bugün
+        </h2>
+        <p class="section-desc">Her yıl milyonlarca aile tercih ediyor.</p>
+      </div>
+    </div>
+    <!-- Marquee ticker — 8 Real Data Cards (duplicated for seamless continuous loop) -->
+    <div class="values-grid" aria-label="İstatistikler">
+      <!-- 1: Fabrikalar -->
+      <div class="value-card">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 20h20M6 20V10l6-4v14M12 10l6-4v14"/>
+          </svg>
+        </div>
+        <div class="value-card-number">3 Fabrika</div>
+        <div class="value-card-label">Tokat, İzmir, Aydın</div>
+      </div>
+
+      <!-- 2: İhracat -->
+      <div class="value-card">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <div class="value-card-number">100+ Ülke</div>
+        <div class="value-card-label">Global İhracat Ağı</div>
+      </div>
+
+      <!-- 3: Doğrudan Çalışan -->
+      <div class="value-card">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="value-card-number">1.100+</div>
+        <div class="value-card-label">Doğrudan Çalışan</div>
+      </div>
+
+      <!-- 4: Tarım Ekosistemi -->
+      <div class="value-card">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="value-card-number">15.000+</div>
+        <div class="value-card-label">Üretici Çiftçi (65.000 Aile)</div>
+      </div>
+
+      <!-- 5: Meyve İşleme -->
+      <div class="value-card">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 9 7 12 7s5-3 7.5-3a2.5 2.5 0 0 1 0 5H18"/>
+            <path d="M12 7v10"/><path d="M9 21h6"/><path d="M9 17h6"/>
+          </svg>
+        </div>
+        <div class="value-card-number">100.000 Ton</div>
+        <div class="value-card-label">Yıllık Meyve İşleme</div>
+      </div>
+
+      <!-- 6: Meyve Suyu Kapasitesi -->
+      <div class="value-card">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <div class="value-card-number">300.000+ Ton</div>
+        <div class="value-card-label">Meyve Suyu Üretimi</div>
+      </div>
+
+      <!-- 7: Süt ve Süt Ürünleri -->
+      <div class="value-card">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 2h8l2 5H6l2-5zM6 7v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7"/>
+          </svg>
+        </div>
+        <div class="value-card-number">100.000 Ton</div>
+        <div class="value-card-label">Süt & Süt Ürünleri Kapasitesi</div>
+      </div>
+
+      <!-- 8: Ürün Çeşitliliği -->
+      <div class="value-card">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <div class="value-card-number">100+ Çeşit</div>
+        <div class="value-card-label">Meyve Suyu, Milkshake, Obsesso</div>
+      </div>
+
+      <!-- ── Seamless Duplicate Set for Smooth Infinite Loop ── -->
+      <!-- 1: Fabrikalar (Dup) -->
+      <div class="value-card" aria-hidden="true">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 20h20M6 20V10l6-4v14M12 10l6-4v14"/>
+          </svg>
+        </div>
+        <div class="value-card-number">3 Fabrika</div>
+        <div class="value-card-label">Tokat, İzmir, Aydın</div>
+      </div>
+
+      <!-- 2: İhracat (Dup) -->
+      <div class="value-card" aria-hidden="true">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <div class="value-card-number">100+ Ülke</div>
+        <div class="value-card-label">Global İhracat Ağı</div>
+      </div>
+
+      <!-- 3: Doğrudan Çalışan (Dup) -->
+      <div class="value-card" aria-hidden="true">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="value-card-number">1.100+</div>
+        <div class="value-card-label">Doğrudan Çalışan</div>
+      </div>
+
+      <!-- 4: Tarım Ekosistemi (Dup) -->
+      <div class="value-card" aria-hidden="true">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="value-card-number">15.000+</div>
+        <div class="value-card-label">Üretici Çiftçi (65.000 Aile)</div>
+      </div>
+
+      <!-- 5: Meyve İşleme (Dup) -->
+      <div class="value-card" aria-hidden="true">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 9 7 12 7s5-3 7.5-3a2.5 2.5 0 0 1 0 5H18"/>
+            <path d="M12 7v10"/><path d="M9 21h6"/><path d="M9 17h6"/>
+          </svg>
+        </div>
+        <div class="value-card-number">100.000 Ton</div>
+        <div class="value-card-label">Yıllık Meyve İşleme</div>
+      </div>
+
+      <!-- 6: Meyve Suyu Kapasitesi (Dup) -->
+      <div class="value-card" aria-hidden="true">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <div class="value-card-number">300.000+ Ton</div>
+        <div class="value-card-label">Meyve Suyu Üretimi</div>
+      </div>
+
+      <!-- 7: Süt ve Süt Ürünleri (Dup) -->
+      <div class="value-card" aria-hidden="true">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 2h8l2 5H6l2-5zM6 7v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7"/>
+          </svg>
+        </div>
+        <div class="value-card-number">100.000 Ton</div>
+        <div class="value-card-label">Süt & Süt Ürünleri Kapasitesi</div>
+      </div>
+
+      <!-- 8: Ürün Çeşitliliği (Dup) -->
+      <div class="value-card" aria-hidden="true">
+        <div class="value-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <div class="value-card-number">100+ Çeşit</div>
+        <div class="value-card-label">Meyve Suyu, Milkshake, Obsesso</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Organic Divider: green → cream ── -->
+  <svg class="section-divider" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,30 C200,70 400,10 600,45 C800,80 1000,15 1200,50 C1350,70 1400,40 1440,30 L1440,80 L0,80 Z" fill="#faf6f0"/>
+  </svg>
+
+  <!-- ========== SUSTAINABILITY ========== -->
+  <section class="sustainability" id="sustainability">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-eyebrow">Sürdürülebilirlik</div>
+        <h2 class="section-title">Aldığımızı Geri Veriyoruz</h2>
+        <p class="section-desc">Doğadan alıyoruz, doğaya borçlanmadan üretiyoruz.</p>
+      </div>
+      <div class="sustainability-grid">
+        <div class="sustainability-card fade-in">
+          <div class="sustainability-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c4-4 8-7.5 8-12a8 8 0 1 0-16 0c0 4.5 4 8 8 12z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3>Yerel Çiftçi</h3>
+          <p>Meyveler Türkiye'nin dört bir yanındaki üreticiden. Taşıma mesafesi kısa, çiftçi desteği sürekli.</p>
+        </div>
+        <div class="sustainability-card fade-in">
+          <div class="sustainability-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3>Geri Dönüşüm</h3>
+          <p>Ambalajların büyük çoğunluğu geri dönüştürülebilir. Her yıl oranı artırıyoruz.</p>
+        </div>
+        <div class="sustainability-card fade-in">
+          <div class="sustainability-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v1m0 16v1m-8-9H3m18 0h-1M5.6 5.6l.7.7m12.1 12.1l.7.7M5.6 18.4l.7-.7M18.4 5.6l.7-.7"/>
+              <circle cx="12" cy="12" r="4"/>
+            </svg>
+          </div>
+          <h3>Güneş Enerjisi</h3>
+          <p>Tesislerde güneş panelleri. Karbon ayak izini azaltmak için her yıl yeni yatırım.</p>
+        </div>
+        <div class="sustainability-card fade-in">
+          <div class="sustainability-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 16.5c-2.8 0-5-1.5-5-4s2.2-4 5-4c.5-3 3.2-5.5 6.5-5.5 3.6 0 6.5 2.9 6.5 6.5 0 .3 0 .6-.1.9 1.8.7 3.1 2.5 3.1 4.6 0 2.8-2.2 5-5 5H7z"/>
+            </svg>
+          </div>
+          <h3>Su Tasarrufu</h3>
+          <p>İleri arıtma ve geri kazanımla üretimde su tüketimini minimuma indiriyoruz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-box fade-in">
+        <div class="cta-content">
+          <span class="cta-badge">DOĞAYI KEŞFET</span>
+          <h2 class="cta-title">Bir Yudum Deneyin,<br><span class="cta-title-spark">Ferahlığı Hissedin</span></h2>
+          <p class="cta-desc">Anadolu'nun en taze meyveleri ve DİMES'in 60 yılı aşkın lezzet ustalığı bardağında. Tüm çeşitlerimizi keşfetmek için resmî sayfamızı ziyaret edin.</p>
+          
+          <div class="cta-actions">
+            <a href="https://www.dimes.com.tr" target="_blank" rel="noopener noreferrer" class="cta-btn-primary">
+              <span class="cta-btn-icon">
+                <img src="assests/logo.png" alt="DİMES" class="cta-logo-mini">
+              </span>
+              <span class="cta-btn-text">
+                <span class="cta-btn-label">Resmî Web Sitesini Keşfet</span>
+                <strong class="cta-btn-url">dimes.com.tr</strong>
+              </span>
+              <svg class="cta-arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="cta-trust">
+            <span>🇹🇷 %100 Yerli Üretim</span>
+            <span class="cta-trust-dot">•</span>
+            <span>50+ Ülkeye İhracat</span>
+            <span class="cta-trust-dot">•</span>
+            <span>1962'den Beri</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="assests/logo.png" alt="Dimes Logo" class="logo-img">
+          </a>
+          <p>Tokat, 1962. Türkiye'nin meyve suyu.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Ürünler</h4>
+          <a href="#">%100 Meyve Suları</a>
+          <a href="#">Nektarlar</a>
+          <a href="#">İçecekler</a>
+          <a href="#">Buzlu Çay</a>
+          <a href="#">Su</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kurumsal</h4>
+          <a href="#">Hakkımızda</a>
+          <a href="#">Kariyer</a>
+          <a href="#">Basın</a>
+          <a href="#">Sürdürülebilirlik</a>
+        </div>
+        <div class="footer-col">
+          <h4>İletişim</h4>
+          <a href="#">Müşteri Hizmetleri</a>
+          <a href="#">Bayilik</a>
+          <a href="#">İhracat</a>
+          <a href="#">Genel Merkez</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Dimes Gıda Sanayi ve Ticaret A.Ş.</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== EXTERNAL SCRIPTS ========== -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
