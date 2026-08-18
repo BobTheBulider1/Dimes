@@ -448,12 +448,13 @@ ul, ol {
    HERO SECTION
    Full viewport, asymmetric, with grain texture
    ============================================ */
-/* Hero Section - Full Viewport Screen Coverage */
+/* Hero Section - Compact Sleek Viewport */
 .hero-scroll-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 62vh;
+  min-height: 480px;
+  max-height: 600px;
   background: #1c1917;
   overflow: hidden;
 }
@@ -461,12 +462,11 @@ ul, ol {
 .hero-sticky-wrapper {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 1rem 3rem;
+  padding: 4.5rem 1rem 2rem;
   overflow: hidden;
 }
 
@@ -1817,11 +1817,11 @@ section {
     padding: 0.85rem;
   }
 
-  /* Mobile Hero Optimization (Natural scrolling, 120fps fluid touch response) */
+  /* Mobile Hero Optimization (Compact sleek header height) */
   .hero-scroll-section {
     height: auto !important;
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 55vh !important;
+    max-height: 480px !important;
     overflow: hidden;
   }
 
@@ -1829,9 +1829,9 @@ section {
     position: relative !important;
     top: 0 !important;
     height: auto !important;
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding: 6rem 1rem 3.5rem !important;
+    min-height: 55vh !important;
+    max-height: 480px !important;
+    padding: 4.5rem 1rem 2rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
