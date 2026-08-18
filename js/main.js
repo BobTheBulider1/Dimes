@@ -26,9 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0.05, rootMargin: '50px' });
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-in').forEach(el => {
+    // If element is already in viewport on load, show immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('visible');
+    } else {
+      observer.observe(el);
+    }
+  });
 
   // 3. Smooth scroll for anchor navigation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -155,16 +163,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // Trigger counter when stats section enters viewport
   const statsContainer = document.querySelector('.hero-stats');
   if (statsContainer) {
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounters();
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
+    // Immediate trigger if already visible on load
+    const sRect = statsContainer.getBoundingClientRect();
+    if (sRect.top < window.innerHeight && sRect.bottom > 0) {
+      animateCounters();
+    } else {
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
 
-    statsObserver.observe(statsContainer);
+      statsObserver.observe(statsContainer);
+    }
+  }
+
+  // Ensure hero video playback
+  if (heroBgVideo) {
+    heroBgVideo.muted = true;
+    heroBgVideo.play().catch(() => {});
   }
 
   // 7. Cool Ailesi Character Roster Interactive Click & Back Button Logic
