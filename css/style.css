@@ -2260,18 +2260,18 @@ section {
 
 .nektar-roster-back {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 18px;
+  right: 18px;
   z-index: 40;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.25rem;
+  gap: 6px;
+  padding: 0.45rem 1rem;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: var(--radius-full);
   color: var(--white);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
   opacity: 0;
@@ -2283,8 +2283,8 @@ section {
 }
 
 .nektar-roster-back svg {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
 }
 
 .nektar-roster-back:hover {
@@ -2815,20 +2815,20 @@ section {
 /* Back Button in Detail Mode - GPU Accelerated 60 FPS */
 .cool-roster-back {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 18px;
+  right: 18px;
   z-index: 40;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 0.65rem 1.5rem;
+  gap: 6px;
+  padding: 0.45rem 1rem;
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-full);
   color: var(--white);
-  font-size: var(--text-small);
+  font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
   opacity: 0;
@@ -2840,8 +2840,8 @@ section {
 }
 
 .cool-roster-back svg {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
 }
 
 .cool-roster-back:hover {
@@ -3324,10 +3324,17 @@ section {
 
   .cool-roster-back,
   .nektar-roster-back {
-    top: 12px;
-    right: 12px;
-    padding: 0.45rem 1.1rem;
-    font-size: 0.78rem;
+    top: 10px;
+    right: 10px;
+    padding: 0.32rem 0.75rem;
+    font-size: 0.7rem;
+    gap: 5px;
+  }
+
+  .cool-roster-back svg,
+  .nektar-roster-back svg {
+    width: 12px;
+    height: 12px;
   }
 
   /* Mobile Section Headers & Banners */
