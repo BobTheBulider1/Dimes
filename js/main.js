@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mobile Horizontal Scroll Active Slice Centering Detector for Cool Roster (Strictly 1 Slice Lights Up)
+  // Mobile Horizontal Scroll Active Slice Centering Detector for Cool Roster (Strictly 1 Slice Lights Up - 0ms Layout Overhead)
   const coolRoster = document.getElementById('coolRoster');
   if (coolRoster) {
     let coolTicking = false;
@@ -218,13 +218,11 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (coolRoster.scrollLeft >= maxScroll - 20) {
         closestSlice = coolSlices[coolSlices.length - 1];
       } else {
-        const rosterRect = coolRoster.getBoundingClientRect();
-        const rosterCenter = rosterRect.left + rosterRect.width / 2;
+        const rosterCenter = coolRoster.scrollLeft + (coolRoster.clientWidth / 2);
         let minDistance = Infinity;
 
         coolSlices.forEach(slice => {
-          const sliceRect = slice.getBoundingClientRect();
-          const sliceCenter = sliceRect.left + sliceRect.width / 2;
+          const sliceCenter = slice.offsetLeft + (slice.offsetWidth / 2);
           const distance = Math.abs(rosterCenter - sliceCenter);
 
           if (distance < minDistance) {
@@ -293,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mobile Horizontal Scroll Active Slice Centering Detector for Nektar Roster (Strictly 1 Slice Lights Up)
+  // Mobile Horizontal Scroll Active Slice Centering Detector for Nektar Roster (Strictly 1 Slice Lights Up - 0ms Layout Overhead)
   const nektarRoster = document.getElementById('nektarRoster');
   if (nektarRoster) {
     let nektarTicking = false;
@@ -308,13 +306,11 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (nektarRoster.scrollLeft >= maxScroll - 20) {
         closestSlice = nektarSlices[nektarSlices.length - 1];
       } else {
-        const rosterRect = nektarRoster.getBoundingClientRect();
-        const rosterCenter = rosterRect.left + rosterRect.width / 2;
+        const rosterCenter = nektarRoster.scrollLeft + (nektarRoster.clientWidth / 2);
         let minDistance = Infinity;
 
         nektarSlices.forEach(slice => {
-          const sliceRect = slice.getBoundingClientRect();
-          const sliceCenter = sliceRect.left + sliceRect.width / 2;
+          const sliceCenter = slice.offsetLeft + (slice.offsetWidth / 2);
           const distance = Math.abs(rosterCenter - sliceCenter);
 
           if (distance < minDistance) {
