@@ -448,12 +448,13 @@ ul, ol {
    HERO SECTION
    Full viewport, asymmetric, with grain texture
    ============================================ */
-/* Hero Section - Full Viewport Screen Coverage with Brand Cream Background */
+/* Hero Section - Compact Proportional Height */
 .hero-scroll-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 75vh;
+  min-height: 540px;
+  max-height: 720px;
   background: var(--cream);
   overflow: hidden;
 }
@@ -461,17 +462,16 @@ ul, ol {
 .hero-sticky-wrapper {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 1rem 3rem;
+  padding: 5rem 1rem 2rem;
   overflow: hidden;
   background: var(--cream);
 }
 
-/* Full Hero Video Background - 100% Full Screen Coverage */
+/* Full Hero Video Background - Compact Proportional Coverage */
 .hero-video-bg {
   position: absolute;
   inset: 0;
@@ -489,7 +489,7 @@ ul, ol {
   object-fit: cover;
   object-position: center center;
   opacity: 1;
-  transform: scale(1.18); /* Scales video to eliminate all top/bottom letterbox black borders */
+  transform: scale(1.05); /* Proportional natural fit */
 }
 
 /* Clean subtle overlay matching site brand warmth — zero dark/black shading */
@@ -1813,8 +1813,7 @@ section {
   /* Mobile Hero Optimization (Natural scrolling, 120fps fluid touch response) */
   .hero-scroll-section {
     height: auto !important;
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 70vh !important;
     overflow: hidden;
   }
 
@@ -1822,8 +1821,8 @@ section {
     position: relative !important;
     top: 0 !important;
     height: auto !important;
-    min-height: 100vh;
-    padding: 6rem 1rem 3.5rem !important;
+    min-height: 70vh !important;
+    padding: 5rem 1rem 2.5rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1836,7 +1835,7 @@ section {
   }
 
   .hero-bg-video {
-    transform: scale(1.18) !important;
+    transform: scale(1.05) !important;
     transition: none !important;
     filter: none !important;
     -webkit-filter: none !important;
