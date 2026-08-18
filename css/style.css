@@ -3117,14 +3117,21 @@ section {
     border-right: none;
     padding: 1.25rem 0.5rem;
     -webkit-tap-highlight-color: transparent;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, border-color 0.35s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, border-color 0.25s ease;
   }
 
-  /* Disable hover bleeding on mobile touch */
+  /* Disable hover, active and focus bleeding on mobile touch */
   .cool-roster:hover .cool-roster-slice,
   .nektar-roster:hover .nektar-roster-slice,
   .cool-roster-slice:hover,
-  .nektar-roster-slice:hover {
+  .nektar-roster-slice:hover,
+  .cool-roster-slice:active,
+  .nektar-roster-slice:active,
+  .cool-roster-slice:focus,
+  .nektar-roster-slice:focus {
     flex: 0 0 175px !important;
     transform: none !important;
   }

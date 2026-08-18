@@ -206,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile Horizontal Scroll Active Slice Centering Detector for Cool Roster (Strictly 1 Slice Lights Up)
   const coolRoster = document.getElementById('coolRoster');
   if (coolRoster) {
+    let coolTicking = false;
     function updateCenteredSlice() {
       if (window.innerWidth >= 900 || (coolRosterFrame && coolRosterFrame.classList.contains('is-expanded'))) return;
 
@@ -239,7 +240,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    coolRoster.addEventListener('scroll', updateCenteredSlice, { passive: true });
+    function requestCoolUpdate() {
+      if (!coolTicking) {
+        requestAnimationFrame(() => {
+          updateCenteredSlice();
+          coolTicking = false;
+        });
+        coolTicking = true;
+      }
+    }
+
+    coolRoster.addEventListener('scroll', requestCoolUpdate, { passive: true });
+    coolRoster.addEventListener('touchmove', requestCoolUpdate, { passive: true });
+    coolRoster.addEventListener('touchend', requestCoolUpdate, { passive: true });
     window.addEventListener('resize', updateCenteredSlice, { passive: true });
     updateCenteredSlice();
   }
@@ -283,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile Horizontal Scroll Active Slice Centering Detector for Nektar Roster (Strictly 1 Slice Lights Up)
   const nektarRoster = document.getElementById('nektarRoster');
   if (nektarRoster) {
+    let nektarTicking = false;
     function updateCenteredNektarSlice() {
       if (window.innerWidth >= 900 || (nektarRosterFrame && nektarRosterFrame.classList.contains('is-expanded'))) return;
 
@@ -316,7 +330,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    nektarRoster.addEventListener('scroll', updateCenteredNektarSlice, { passive: true });
+    function requestNektarUpdate() {
+      if (!nektarTicking) {
+        requestAnimationFrame(() => {
+          updateCenteredNektarSlice();
+          nektarTicking = false;
+        });
+        nektarTicking = true;
+      }
+    }
+
+    nektarRoster.addEventListener('scroll', requestNektarUpdate, { passive: true });
+    nektarRoster.addEventListener('touchmove', requestNektarUpdate, { passive: true });
+    nektarRoster.addEventListener('touchend', requestNektarUpdate, { passive: true });
     window.addEventListener('resize', updateCenteredNektarSlice, { passive: true });
     updateCenteredNektarSlice();
   }
