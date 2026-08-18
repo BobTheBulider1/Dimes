@@ -3092,7 +3092,9 @@ section {
     -webkit-overflow-scrolling: touch;
     gap: 12px;
     padding: 10px;
-    touch-action: pan-x;
+    touch-action: pan-y pan-x; /* Sayfanın yukarı/aşağı doğal akışta kaydırılmasına tam izin verir */
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: auto;
   }
 
   /* Custom subtle scrollbar for mobile carousel */
