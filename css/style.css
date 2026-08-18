@@ -1838,7 +1838,13 @@ section {
 
   .hero-bg-video {
     transform: none !important;
-    filter: brightness(0.9) contrast(1.05) saturate(1.1) !important;
+    transition: none !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+  }
+
+  .hero-video-bg {
+    contain: strict;
   }
 
   .hero-scroll-hint {
@@ -3658,11 +3664,37 @@ section {
     will-change: auto !important;
   }
 
+  /* Kill the infinite ticker animation on mobile — it runs even offscreen and steals GPU frames */
+  .values-grid {
+    animation: none !important;
+    flex-wrap: wrap !important;
+    width: auto !important;
+    justify-content: center !important;
+  }
+
+  /* Kill CSS filters on mobile — each filter recalculates every pixel every frame during scroll */
+  .hero-bg-video,
+  .values-logo-img {
+    filter: none !important;
+    -webkit-filter: none !important;
+  }
+
+  /* Defer rendering of offscreen sections — browser skips layout/paint until they scroll near */
   .values,
   .sustainability,
-  .footer {
+  .footer,
+  .cta,
+  .story-editorial {
     content-visibility: auto;
-    contain-intrinsic-size: 500px;
+    contain-intrinsic-size: auto 500px;
+  }
+
+  /* Contain each major section so paint doesn't cascade across the whole page */
+  .cool-family,
+  .nektar-family,
+  .products,
+  .story {
+    contain: layout style paint;
   }
 }
 
