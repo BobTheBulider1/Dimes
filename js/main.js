@@ -93,13 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeMobileDrawer);
   });
 
-  // 5. Hero Video Smooth 60fps Parallax & Pinned Scroll Continuation
+  // 5. Hero Video Smooth 60fps Parallax & Pinned Scroll Continuation (Desktop only for 120fps mobile performance)
   const heroBgVideo = document.getElementById('heroBgVideo');
   const heroScrollSection = document.getElementById('hero');
   const heroScrollHint = document.getElementById('heroScrollHint');
 
   function updateVideoOnScroll() {
-    if (!heroScrollSection) return;
+    if (!heroScrollSection || window.innerWidth < 900) return;
     const rect = heroScrollSection.getBoundingClientRect();
     const scrollableDistance = heroScrollSection.offsetHeight - window.innerHeight;
 
