@@ -26,17 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.05, rootMargin: '50px' });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 
-  document.querySelectorAll('.fade-in').forEach(el => {
-    // If element is already in viewport on load, show immediately
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      el.classList.add('visible');
-    } else {
-      observer.observe(el);
-    }
-  });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
   // 3. Smooth scroll for anchor navigation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -163,54 +155,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Trigger counter when stats section enters viewport
   const statsContainer = document.querySelector('.hero-stats');
   if (statsContainer) {
-    // Immediate trigger if already visible on load
-    const sRect = statsContainer.getBoundingClientRect();
-    if (sRect.top < window.innerHeight && sRect.bottom > 0) {
-      animateCounters();
-    } else {
-      const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounters();
-            statsObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
 
-      statsObserver.observe(statsContainer);
-    }
-  }
-
-  // Ensure hero video playback
-  if (heroBgVideo) {
-    heroBgVideo.muted = true;
-    heroBgVideo.play().catch(() => {});
+    statsObserver.observe(statsContainer);
   }
 
   // 7. Cool Ailesi Character Roster Interactive Click & Back Button Logic
   const coolRosterFrame = document.getElementById('coolRosterFrame');
   const coolRosterBack = document.getElementById('coolRosterBack');
   const coolSlices = document.querySelectorAll('.cool-roster-slice');
-  const coolRoster = document.getElementById('coolRoster');
 
   coolSlices.forEach(slice => {
-    slice.addEventListener('click', () => {
-      if (slice.classList.contains('is-active')) return;
-
-      // On mobile (< 900px): ONLY the lit-up (is-centered) slice can be opened!
-      if (window.innerWidth < 900 && coolRoster && !slice.classList.contains('is-centered')) {
-        // If tapping a non-centered slice, scroll it smoothly to the center so its lights turn on
-        const rosterRect = coolRoster.getBoundingClientRect();
-        const sliceRect = slice.getBoundingClientRect();
-        const currentScroll = coolRoster.scrollLeft;
-        const targetScroll = currentScroll + (sliceRect.left - rosterRect.left) - (rosterRect.width / 2 - sliceRect.width / 2);
-        coolRoster.scrollTo({ left: targetScroll, behavior: 'smooth' });
-        return;
+    slice.addEventListener('click', (e) => {
+      // On mobile (< 900px), ONLY the currently glowing/centered slice opens details
+      if (window.innerWidth < 900) {
+        if (!slice.classList.contains('is-centered')) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (coolRoster) {
+            const scrollOffset = slice.offsetLeft - (coolRoster.clientWidth / 2) + (slice.clientWidth / 2);
+            coolRoster.scrollTo({ left: scrollOffset, behavior: 'smooth' });
+          }
+          return;
+        }
       }
+
+      if (slice.classList.contains('is-active')) return;
 
       coolSlices.forEach(s => s.classList.remove('is-active'));
       slice.classList.add('is-active');
-      slice.classList.add('is-centered');
       if (coolRosterFrame) coolRosterFrame.classList.add('is-expanded');
     });
   });
@@ -224,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Mobile Horizontal Scroll Active Slice Centering Detector for Cool Roster (Strictly 1 Slice Lights Up)
+  const coolRoster = document.getElementById('coolRoster');
   if (coolRoster) {
     function updateCenteredSlice() {
       if (window.innerWidth >= 900 || (coolRosterFrame && coolRosterFrame.classList.contains('is-expanded'))) return;
@@ -267,26 +248,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const nektarRosterFrame = document.getElementById('nektarRosterFrame');
   const nektarRosterBack = document.getElementById('nektarRosterBack');
   const nektarSlices = document.querySelectorAll('.nektar-roster-slice');
-  const nektarRoster = document.getElementById('nektarRoster');
 
   nektarSlices.forEach(slice => {
-    slice.addEventListener('click', () => {
-      if (slice.classList.contains('is-active')) return;
-
-      // On mobile (< 900px): ONLY the lit-up (is-centered) slice can be opened!
-      if (window.innerWidth < 900 && nektarRoster && !slice.classList.contains('is-centered')) {
-        // If tapping a non-centered slice, scroll it smoothly to the center so its lights turn on
-        const rosterRect = nektarRoster.getBoundingClientRect();
-        const sliceRect = slice.getBoundingClientRect();
-        const currentScroll = nektarRoster.scrollLeft;
-        const targetScroll = currentScroll + (sliceRect.left - rosterRect.left) - (rosterRect.width / 2 - sliceRect.width / 2);
-        nektarRoster.scrollTo({ left: targetScroll, behavior: 'smooth' });
-        return;
+    slice.addEventListener('click', (e) => {
+      // On mobile (< 900px), ONLY the currently glowing/centered slice opens details
+      if (window.innerWidth < 900) {
+        if (!slice.classList.contains('is-centered')) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (nektarRoster) {
+            const scrollOffset = slice.offsetLeft - (nektarRoster.clientWidth / 2) + (slice.clientWidth / 2);
+            nektarRoster.scrollTo({ left: scrollOffset, behavior: 'smooth' });
+          }
+          return;
+        }
       }
+
+      if (slice.classList.contains('is-active')) return;
 
       nektarSlices.forEach(s => s.classList.remove('is-active'));
       slice.classList.add('is-active');
-      slice.classList.add('is-centered');
       if (nektarRosterFrame) nektarRosterFrame.classList.add('is-expanded');
     });
   });
