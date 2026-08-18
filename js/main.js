@@ -4,34 +4,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Header scroll state & Hero Video parallax — consolidated 60/120fps rAF throttled scroll
+  // 1. Header scroll state — 60/120fps rAF throttled scroll
   let isScrolling = false;
-  const heroBgVideo = document.getElementById('heroBgVideo');
-  const heroScrollSection = document.getElementById('hero');
-  const heroScrollHint = document.getElementById('heroScrollHint');
 
   window.addEventListener('scroll', () => {
     if (!isScrolling) {
       requestAnimationFrame(() => {
         if (header) {
           header.classList.toggle('scrolled', window.pageYOffset > 50);
-        }
-        const isDesktop = window.innerWidth >= 1024 && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-        if (isDesktop && heroScrollSection && heroBgVideo) {
-          const rect = heroScrollSection.getBoundingClientRect();
-          const scrollableDistance = heroScrollSection.offsetHeight - window.innerHeight;
-          if (scrollableDistance > 0) {
-            const progress = Math.min(Math.max(-rect.top / scrollableDistance, 0), 1);
-            const scale = 1.02 + (progress * 0.18);
-            const translateY = progress * 35;
-            heroBgVideo.style.transform = `scale(${scale}) translateY(${translateY}px)`;
-            if (heroScrollHint) {
-              heroScrollHint.style.opacity = progress > 0.05 ? '0' : '0.9';
-            }
-          }
-        } else if (heroBgVideo && heroBgVideo.style.transform !== 'none') {
-          // Strictly disable all zooming / transformations on mobile & touch screens
-          heroBgVideo.style.transform = 'none';
         }
         isScrolling = false;
       });
