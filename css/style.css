@@ -2112,49 +2112,54 @@ section {
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 1: Şeftali Nektarı Glow */
+/* 1: Şeftali Nektarı Glow (Canlı Şeftali Turuncusu & Altın) */
 .nektar-slice--seftali::before {
-  background: radial-gradient(circle at 50% 50%, #f97316 0%, #c2410c 50%, #431407 100%);
+  background: radial-gradient(circle at 50% 60%, #ff7849 0%, #f97316 35%, #ea580c 60%, #7c2d12 100%);
 }
-.nektar-slice--seftali:hover {
-  border-color: rgba(249, 115, 22, 0.6);
-  box-shadow: inset 0 0 35px rgba(249, 115, 22, 0.3);
+.nektar-slice--seftali:hover,
+.nektar-slice--seftali.is-centered {
+  border-color: rgba(251, 146, 60, 0.8) !important;
+  box-shadow: inset 0 0 45px rgba(249, 115, 22, 0.45), 0 0 35px rgba(234, 88, 12, 0.35) !important;
 }
 
-/* 2: Tropikal Meyveler Glow (Mavi / Ocean Blue) */
+/* 2: Tropikal Meyveler Glow (Elektrik Okyanus Mavisi) */
 .nektar-slice--tropikal::before {
-  background: radial-gradient(circle at 50% 50%, #38bdf8 0%, #0284c7 50%, #0c4a6e 100%);
+  background: radial-gradient(circle at 50% 60%, #38bdf8 0%, #0ea5e9 35%, #0284c7 60%, #082f49 100%);
 }
-.nektar-slice--tropikal:hover {
-  border-color: rgba(56, 189, 248, 0.6);
-  box-shadow: inset 0 0 35px rgba(56, 189, 248, 0.3);
+.nektar-slice--tropikal:hover,
+.nektar-slice--tropikal.is-centered {
+  border-color: rgba(56, 189, 248, 0.8) !important;
+  box-shadow: inset 0 0 45px rgba(56, 189, 248, 0.45), 0 0 35px rgba(2, 132, 199, 0.35) !important;
 }
 
-/* 3: Mango İçeceği Glow (Yeşil / Lush Green) */
+/* 3: Mango İçeceği Glow (Canlı Neon Mango Yeşili) */
 .nektar-slice--mango::before {
-  background: radial-gradient(circle at 50% 50%, #22c55e 0%, #16a34a 50%, #064e3b 100%);
+  background: radial-gradient(circle at 50% 60%, #4ade80 0%, #22c55e 35%, #16a34a 60%, #052e16 100%);
 }
-.nektar-slice--mango:hover {
-  border-color: rgba(34, 197, 94, 0.6);
-  box-shadow: inset 0 0 35px rgba(34, 197, 94, 0.3);
+.nektar-slice--mango:hover,
+.nektar-slice--mango.is-centered {
+  border-color: rgba(74, 222, 128, 0.8) !important;
+  box-shadow: inset 0 0 45px rgba(34, 197, 94, 0.45), 0 0 35px rgba(22, 163, 74, 0.35) !important;
 }
 
-/* 4: Orman Meyveleri Glow */
+/* 4: Orman Meyveleri Glow (Neon Fuşya & Viyole) */
 .nektar-slice--orman::before {
-  background: radial-gradient(circle at 50% 50%, #c026d3 0%, #7e22ce 50%, #3b0764 100%);
+  background: radial-gradient(circle at 50% 60%, #e879f9 0%, #c026d3 35%, #9333ea 60%, #3b0764 100%);
 }
-.nektar-slice--orman:hover {
-  border-color: rgba(192, 38, 211, 0.6);
-  box-shadow: inset 0 0 35px rgba(192, 38, 211, 0.3);
+.nektar-slice--orman:hover,
+.nektar-slice--orman.is-centered {
+  border-color: rgba(232, 121, 249, 0.8) !important;
+  box-shadow: inset 0 0 45px rgba(192, 38, 211, 0.45), 0 0 35px rgba(147, 51, 234, 0.35) !important;
 }
 
-/* 5: Ananas İçeceği Glow */
+/* 5: Ananas İçeceği Glow (Güneş Sarısı & Altın Ananas) */
 .nektar-slice--ananas::before {
-  background: radial-gradient(circle at 50% 50%, #facc15 0%, #eab308 50%, #451a03 100%);
+  background: radial-gradient(circle at 50% 60%, #fde047 0%, #facc15 35%, #eab308 60%, #713f12 100%);
 }
-.nektar-slice--ananas:hover {
-  border-color: rgba(250, 204, 21, 0.6);
-  box-shadow: inset 0 0 35px rgba(250, 204, 21, 0.3);
+.nektar-slice--ananas:hover,
+.nektar-slice--ananas.is-centered {
+  border-color: rgba(253, 224, 71, 0.8) !important;
+  box-shadow: inset 0 0 45px rgba(250, 204, 21, 0.45), 0 0 35px rgba(234, 179, 8, 0.35) !important;
 }
 
 /* Hover Accordion & Glow activation */
@@ -2164,12 +2169,13 @@ section {
 }
 
 .nektar-roster-slice:hover {
-  flex: 1.5 !important;
+  flex: 1.85 !important;
   opacity: 1 !important;
+  z-index: 10;
 }
 
 .nektar-roster-slice:hover::before {
-  opacity: 0.96;
+  opacity: 0.98;
 }
 
 .nektar-roster-visual {
