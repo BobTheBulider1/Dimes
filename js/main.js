@@ -4,13 +4,20 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Header scroll state (lightweight — no video parallax)
+  // 1. Header scroll state — consolidated 60/120fps rAF throttled scroll
+  let isScrolling = false;
   const header = document.getElementById('header');
   const heroBgVideo = document.getElementById('heroBgVideo');
 
   window.addEventListener('scroll', () => {
-    if (header) {
-      header.classList.toggle('scrolled', window.pageYOffset > 50);
+    if (!isScrolling) {
+      requestAnimationFrame(() => {
+        if (header) {
+          header.classList.toggle('scrolled', window.pageYOffset > 50);
+        }
+        isScrolling = false;
+      });
+      isScrolling = true;
     }
   }, { passive: true });
 
