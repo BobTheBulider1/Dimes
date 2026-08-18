@@ -4,29 +4,46 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Header scroll state
-  const header = document.getElementById('header');
-  if (header) {
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.pageYOffset > 60);
-    }, { passive: true });
-  }
+  // 1. Header scroll state & Hero Video parallax — consolidated 60/120fps rAF throttled scroll
+  let isScrolling = false;
+  const heroBgVideo = document.getElementById('heroBgVideo');
+  const heroScrollSection = document.getElementById('hero');
+  const heroScrollHint = document.getElementById('heroScrollHint');
 
-  // 2. Intersection Observer — fade-in animations with stagger
+  window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+      requestAnimationFrame(() => {
+        if (header) {
+          header.classList.toggle('scrolled', window.pageYOffset > 50);
+        }
+        if (heroScrollSection && window.innerWidth >= 900 && heroBgVideo) {
+          const rect = heroScrollSection.getBoundingClientRect();
+          const scrollableDistance = heroScrollSection.offsetHeight - window.innerHeight;
+          if (scrollableDistance > 0) {
+            const progress = Math.min(Math.max(-rect.top / scrollableDistance, 0), 1);
+            const scale = 1.02 + (progress * 0.18);
+            const translateY = progress * 35;
+            heroBgVideo.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+            if (heroScrollHint) {
+              heroScrollHint.style.opacity = progress > 0.05 ? '0' : '0.9';
+            }
+          }
+        }
+        isScrolling = false;
+      });
+      isScrolling = true;
+    }
+  }, { passive: true });
+
+  // 2. Intersection Observer — zero-overhead fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const parent = entry.target.parentElement;
-        if (parent) {
-          const siblings = Array.from(parent.children).filter(el => el.classList.contains('fade-in'));
-          const idx = siblings.indexOf(entry.target);
-          entry.target.style.transitionDelay = `${idx * 100}ms`;
-        }
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0.05, rootMargin: '50px' });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
@@ -92,37 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.nav-link:not(.nav-link--dropdown), .dropdown-link, .nav-cta').forEach(link => {
     link.addEventListener('click', closeMobileDrawer);
   });
-
-  // 5. Hero Video Smooth 60fps Parallax & Pinned Scroll Continuation (Desktop only for 120fps mobile performance)
-  const heroBgVideo = document.getElementById('heroBgVideo');
-  const heroScrollSection = document.getElementById('hero');
-  const heroScrollHint = document.getElementById('heroScrollHint');
-
-  function updateVideoOnScroll() {
-    if (!heroScrollSection || window.innerWidth < 900) return;
-    const rect = heroScrollSection.getBoundingClientRect();
-    const scrollableDistance = heroScrollSection.offsetHeight - window.innerHeight;
-
-    if (scrollableDistance <= 0) return;
-
-    // Calculate progress within hero section (0.0 to 1.0)
-    const progress = Math.min(Math.max(-rect.top / scrollableDistance, 0), 1);
-
-    if (heroBgVideo) {
-      // Smooth 60fps video zoom and slow parallax movement as user scrolls
-      const scale = 1.02 + (progress * 0.18);
-      const translateY = progress * 35;
-      heroBgVideo.style.transform = `scale(${scale}) translateY(${translateY}px)`;
-    }
-
-    // Hide scroll hint once user begins scrolling
-    if (heroScrollHint) {
-      heroScrollHint.style.opacity = progress > 0.05 ? '0' : '0.9';
-    }
-  }
-
-  window.addEventListener('scroll', updateVideoOnScroll, { passive: true });
-  updateVideoOnScroll();
 
   // 6. Animated Counter Stats ("Sayaç")
   function animateCounters() {
