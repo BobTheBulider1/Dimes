@@ -495,17 +495,18 @@ ul, ol {
   display: block;
 }
 
-/* Minimal overlay - Only subtle gradient so video is 100% vivid & visible */
+/* Minimal overlay - Crisp hero photo, high readability without bottom washout */
 .hero-smoky-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.42) 0%,
-    rgba(0, 0, 0, 0.18) 45%,
-    rgba(0, 0, 0, 0.55) 82%,
-    rgba(250, 246, 240, 1) 100%
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.22) 35%,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, 0.15) 94%,
+    rgba(250, 246, 240, 0.25) 100%
   );
   pointer-events: none;
 }
