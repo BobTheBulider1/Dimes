@@ -448,25 +448,29 @@ ul, ol {
    HERO SECTION
    Full viewport, asymmetric, with grain texture
    ============================================ */
-/* Hero Section - Simple full viewport */
+/* Hero Section - Full Viewport Screen Coverage */
 .hero-scroll-section {
   position: relative;
-  height: 100vh;
-  height: 100dvh;
-  background: var(--cream);
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #0f172a;
+  overflow: hidden;
 }
 
 .hero-sticky-wrapper {
   position: relative;
-  height: 100%;
   width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 6rem 1rem 3rem;
   overflow: hidden;
 }
 
-/* Full Hero Video Background - 100% Vivid & Clear */
+/* Full Hero Video Background - 100% Full Screen Coverage */
 .hero-video-bg {
   position: absolute;
   inset: 0;
@@ -481,23 +485,22 @@ ul, ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   opacity: 1;
-  filter: brightness(0.94) contrast(1.08) saturate(1.15);
   transform: scale(1.05);
 }
 
-/* Minimal overlay - Only subtle gradient so video is 100% vivid & visible */
+/* Cinematic overlay — Keeps text ultra readable while letting full video shine through */
 .hero-smoky-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.42) 0%,
-    rgba(0, 0, 0, 0.18) 45%,
-    rgba(0, 0, 0, 0.55) 82%,
-    rgba(250, 246, 240, 1) 100%
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.25) 40%,
+    rgba(0, 0, 0, 0.5) 80%,
+    rgba(0, 0, 0, 0.75) 100%
   );
   pointer-events: none;
 }
