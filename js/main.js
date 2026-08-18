@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Header scroll state — consolidated 60/120fps rAF throttled scroll
   let isScrolling = false;
   const header = document.getElementById('header');
-  const heroBgVideo = document.getElementById('heroBgVideo');
 
   window.addEventListener('scroll', () => {
     if (!isScrolling) {

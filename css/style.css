@@ -471,7 +471,7 @@ ul, ol {
   overflow: hidden;
 }
 
-/* Full Hero Video Background - Natural, Static & Crisp */
+/* Full Hero Photo Background - Crisp, High-Res & Responsive */
 .hero-video-bg {
   position: absolute;
   inset: 0;
@@ -483,6 +483,7 @@ ul, ol {
   contain: strict;
 }
 
+.hero-bg-img,
 .hero-bg-video {
   width: 100%;
   height: 100%;
@@ -491,6 +492,7 @@ ul, ol {
   opacity: 1;
   transform: none !important;
   transition: none !important;
+  display: block;
 }
 
 /* Minimal overlay - Only subtle gradient so video is 100% vivid & visible */
@@ -1812,6 +1814,7 @@ section {
     justify-content: center !important;
   }
 
+  .hero-bg-img,
   .hero-bg-video {
     transform: none !important;
     transition: none !important;
