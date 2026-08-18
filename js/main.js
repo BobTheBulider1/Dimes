@@ -33,20 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // 2b. Pause hero video when scrolled off-screen on mobile (saves CPU/GPU decode cycles)
-  if (heroBgVideo && 'IntersectionObserver' in window) {
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          heroBgVideo.play().catch(() => {});
-        } else {
-          heroBgVideo.pause();
-        }
-      });
-    }, { threshold: 0 });
-    videoObserver.observe(heroBgVideo);
-  }
-
   // 3. Smooth scroll for anchor navigation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

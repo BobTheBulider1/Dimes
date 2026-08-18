@@ -1881,11 +1881,11 @@ section {
     letter-spacing: 0.02em !important;
   }
 
-  /* Products: horizontal scroll strip on mobile */
+  /* Products: horizontal scroll strip on mobile (free, natural scrolling) */
   .products-grid {
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: none !important;
     gap: var(--space-lg);
     padding-bottom: var(--space-md);
     -webkit-overflow-scrolling: touch;
@@ -1899,15 +1899,21 @@ section {
   .product-card {
     flex: 0 0 78vw;
     max-width: 320px;
-    scroll-snap-align: center;
+    scroll-snap-align: none !important;
+  }
+
+  /* Disable all scroll entrance / fade-in animations on mobile */
+  .fade-in,
+  .fade-in.visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 
   /* Remove stagger offset on mobile scroll */
-  .product-card:nth-child(even) {
-    transform: none;
-  }
+  .product-card:nth-child(even),
   .product-card.fade-in.visible:nth-child(even) {
-    transform: none;
+    transform: none !important;
   }
 
   .story-editorial {
