@@ -21,8 +21,6 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  touch-action: pan-y;
 }
 
 body {
@@ -32,7 +30,6 @@ body {
   color: var(--ink);
   background-color: var(--cream);
   overflow-x: hidden;
-  touch-action: pan-y;
 }
 
 a {
@@ -216,10 +213,8 @@ ul, ol {
   transition: transform 0.25s ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .logo-img:hover {
-    transform: scale(1.04);
-  }
+.logo-img:hover {
+  transform: scale(1.04);
 }
 
 /* Nav links inside White Navbar */
@@ -453,30 +448,26 @@ ul, ol {
    HERO SECTION
    Full viewport, asymmetric, with grain texture
    ============================================ */
-/* Hero Section - Clean, High-Performance Full Viewport Video (No scroll pinning/zoom) */
+/* Hero Scroll Section - Sticky Pinned smooth video experience */
 .hero-scroll-section {
   position: relative;
-  height: auto;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 180vh; /* Smooth pinned hero scroll distance */
   background: var(--cream);
-  overflow: hidden;
 }
 
 .hero-sticky-wrapper {
-  position: relative;
-  height: auto;
-  min-height: 100vh;
-  min-height: 100dvh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 7.5rem 1.5rem 4rem;
   overflow: hidden;
 }
 
-/* Full Hero Video Background - Natural, Static & Crisp */
+/* Full Hero Video Background - 100% Vivid & Clear */
 .hero-video-bg {
   position: absolute;
   inset: 0;
@@ -485,17 +476,17 @@ ul, ol {
   z-index: 1;
   overflow: hidden;
   pointer-events: none;
-  contain: strict;
 }
 
 .hero-bg-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center top; /* Focus & expand video towards the top */
   opacity: 1;
-  transform: none !important;
-  transition: none !important;
+  filter: brightness(0.94) contrast(1.08) saturate(1.15);
+  transform: scale(1.1) translateY(-15px);
+  transition: transform 0.1s linear;
 }
 
 /* Minimal overlay - Only subtle gradient so video is 100% vivid & visible */
@@ -549,6 +540,34 @@ ul, ol {
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
+/* Scroll Hint Icon */
+.hero-scroll-hint {
+  margin-top: var(--space-xl);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  animation: bounce-hint 2s infinite;
+}
+
+.hero-scroll-hint svg {
+  width: 18px;
+  height: 18px;
+}
+
+@keyframes bounce-hint {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+  60% { transform: translateY(-3px); }
+}
 
 /* Hero stats — Frosted Glass High-Contrast Container */
 .hero-stats {
@@ -670,19 +689,13 @@ section {
   box-shadow: var(--shadow-card);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
-  }
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
 
-  .product-card:nth-child(even):hover {
-    transform: translateY(calc(2.5rem - 6px));
-  }
-
-  .product-card:hover .fruit-art {
-    transform: scale(1.08) rotate(-3deg);
-  }
+.product-card:nth-child(even):hover {
+  transform: translateY(calc(2.5rem - 6px));
 }
 
 .product-card-visual {
@@ -700,6 +713,10 @@ section {
   position: relative;
   z-index: 1;
   transition: transform 0.4s var(--ease);
+}
+
+.product-card:hover .fruit-art {
+  transform: scale(1.08) rotate(-3deg);
 }
 
 .product-card-body {
@@ -1024,10 +1041,8 @@ section {
   transition: transform 0.3s ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .values-logo-img:hover {
-    transform: scale(1.06);
-  }
+.values-logo-img:hover {
+  transform: scale(1.06);
 }
 
 .values .section-desc {
@@ -1244,6 +1259,15 @@ section {
 .sustainability-card:nth-child(4) p {
   color: #1e40af;
 }
+.sustainability-card:nth-child(4):hover {
+  box-shadow: 0 25px 50px rgba(37, 99, 235, 0.22);
+}
+
+.sustainability-card:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.02) !important;
+  z-index: 10;
+}
+
 .sustainability-icon {
   width: 52px;
   height: 52px;
@@ -1255,26 +1279,8 @@ section {
   transition: transform 0.3s var(--ease);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .sustainability-card:nth-child(1):hover {
-    box-shadow: 0 25px 50px rgba(22, 163, 74, 0.22);
-  }
-  .sustainability-card:nth-child(2):hover {
-    box-shadow: 0 25px 50px rgba(2, 132, 199, 0.22);
-  }
-  .sustainability-card:nth-child(3):hover {
-    box-shadow: 0 25px 50px rgba(217, 119, 6, 0.22);
-  }
-  .sustainability-card:nth-child(4):hover {
-    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.22);
-  }
-  .sustainability-card:hover {
-    transform: rotate(0deg) translateY(-8px) scale(1.02) !important;
-    z-index: 10;
-  }
-  .sustainability-card:hover .sustainability-icon {
-    transform: scale(1.1) rotate(4deg);
-  }
+.sustainability-card:hover .sustainability-icon {
+  transform: scale(1.1) rotate(4deg);
 }
 
 .sustainability-icon svg {
@@ -1395,12 +1401,10 @@ section {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.3s ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .cta-btn-primary:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45), 0 0 0 2px rgba(255, 255, 255, 0.8);
-    background: #ffffff;
-  }
+.cta-btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45), 0 0 0 2px rgba(255, 255, 255, 0.8);
+  background: #ffffff;
 }
 
 .cta-btn-icon {
@@ -1451,10 +1455,8 @@ section {
   transition: transform 0.3s ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .cta-btn-primary:hover .cta-arrow-icon {
-    transform: translateX(4px);
-  }
+.cta-btn-primary:hover .cta-arrow-icon {
+  transform: translateX(4px);
 }
 
 .cta-trust {
@@ -1609,10 +1611,10 @@ section {
 
 @keyframes ticker {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
   }
   100% {
-    transform: translate3d(-50%, 0, 0);
+    transform: translateX(-50%);
   }
 }
 
@@ -1877,7 +1879,9 @@ section {
     margin-top: 1.25rem !important;
     padding: 0.85rem 0.5rem !important;
     border-radius: var(--radius-lg) !important;
-    background: rgba(0, 0, 0, 0.75) !important;
+    background: rgba(0, 0, 0, 0.65) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
     border: 1px solid rgba(255, 255, 255, 0.25) !important;
     width: 100%;
   }
@@ -1903,11 +1907,11 @@ section {
     letter-spacing: 0.02em !important;
   }
 
-  /* Products: horizontal scroll strip on mobile (free, natural scrolling) */
+  /* Products: horizontal scroll strip on mobile */
   .products-grid {
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: none !important;
+    scroll-snap-type: x mandatory;
     gap: var(--space-lg);
     padding-bottom: var(--space-md);
     -webkit-overflow-scrolling: touch;
@@ -1921,21 +1925,15 @@ section {
   .product-card {
     flex: 0 0 78vw;
     max-width: 320px;
-    scroll-snap-align: none !important;
-  }
-
-  /* Disable all scroll entrance / fade-in animations on mobile */
-  .fade-in,
-  .fade-in.visible {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
+    scroll-snap-align: center;
   }
 
   /* Remove stagger offset on mobile scroll */
-  .product-card:nth-child(even),
+  .product-card:nth-child(even) {
+    transform: none;
+  }
   .product-card.fade-in.visible:nth-child(even) {
-    transform: none !important;
+    transform: none;
   }
 
   .story-editorial {
@@ -2380,20 +2378,6 @@ section {
     filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .nektar-roster-slice:hover .nektar-roster-img {
-    transform: translateY(-16px) scale(1.15) rotate(3deg) translateZ(0);
-    filter:
-      drop-shadow(0 28px 35px rgba(0, 0, 0, 0.8))
-      drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
-  }
-
-  .nektar-roster-slice:hover .nektar-roster-badge {
-    background: var(--white);
-    color: #170703;
-  }
-}
-
 /* Top Badge inside slice */
 .nektar-roster-badge {
   position: relative;
@@ -2409,6 +2393,20 @@ section {
   backdrop-filter: blur(4px);
   transition: background 0.3s ease, color 0.3s ease;
   white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nektar-roster-slice:hover .nektar-roster-img {
+    transform: translateY(-16px) scale(1.15) rotate(3deg) translateZ(0);
+    filter:
+      drop-shadow(0 28px 35px rgba(0, 0, 0, 0.8))
+      drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+  }
+
+  .nektar-roster-slice:hover .nektar-roster-badge {
+    background: var(--white);
+    color: #170703;
+  }
 }
 
 /* Bottom Info inside slice */
@@ -2947,21 +2945,25 @@ section {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
-/* Cool Lime — Özel Boyut Dengesi */
-.cool-roster-img--lime {
-  max-height: 258px;
-  max-width: 142px;
-  transform: scale(1.05);
-}
-
-/* Cool Lime Zero — Özel Boyut Dengesi */
-.cool-roster-img--zero {
-  max-height: 236px;
-  max-width: 130px;
-  transform: scale(0.97);
+/* Top Badge inside slice */
+.cool-roster-badge {
+  position: relative;
+  z-index: 2;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  transition: background 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
 }
 
 @media (hover: hover) and (pointer: fine) {
+  /* Universal 3D Tilt, Elevation & Rotation for ALL 6 Products on Hover */
   .cool-roster-slice:hover .cool-roster-img {
     transform: translateY(-16px) scale(1.16) rotate(3.5deg) translateZ(0);
     filter:
@@ -2981,23 +2983,6 @@ section {
     background: var(--white);
     color: #090d16;
   }
-}
-
-/* Top Badge inside slice */
-.cool-roster-badge {
-  position: relative;
-  z-index: 2;
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(4px);
-  transition: background 0.3s ease, color 0.3s ease;
-  white-space: nowrap;
 }
 
 /* Bottom Info inside slice */
@@ -3669,20 +3654,12 @@ section {
     will-change: auto !important;
   }
 
-  /* Values: Smooth 60/120fps hardware-accelerated infinite moving marquee band on mobile */
+  /* Kill the infinite ticker animation on mobile — it runs even offscreen and steals GPU frames */
   .values-grid {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    animation: ticker 28s linear infinite !important;
-    width: max-content !important;
-    transform: translate3d(0, 0, 0) !important;
-    will-change: transform !important;
-  }
-
-  .value-card {
-    flex: 0 0 auto !important;
-    padding: var(--space-lg) var(--space-xl) !important;
-    white-space: nowrap !important;
+    animation: none !important;
+    flex-wrap: wrap !important;
+    width: auto !important;
+    justify-content: center !important;
   }
 
   /* Kill CSS filters on mobile — each filter recalculates every pixel every frame during scroll */
@@ -3690,21 +3667,6 @@ section {
   .values-logo-img {
     filter: none !important;
     -webkit-filter: none !important;
-  }
-
-  /* Mobile: Complete prevention of unwanted photo zoom or jumps on touch scroll */
-  .fruit-art,
-  .product-card,
-  .sustainability-card,
-  .sustainability-icon,
-  .nektar-roster-img,
-  .cool-roster-img,
-  .values-logo-img,
-  .logo-img,
-  .hero-bg-video {
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    -webkit-user-select: none;
   }
 
   /* Defer rendering of offscreen sections — browser skips layout/paint until they scroll near */

@@ -4,16 +4,31 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Header scroll state — consolidated 60/120fps rAF throttled scroll
+  // 1. Header scroll state & Hero Video parallax — consolidated 60/120fps rAF throttled scroll
   let isScrolling = false;
   const header = document.getElementById('header');
   const heroBgVideo = document.getElementById('heroBgVideo');
+  const heroScrollSection = document.getElementById('hero');
+  const heroScrollHint = document.getElementById('heroScrollHint');
 
   window.addEventListener('scroll', () => {
     if (!isScrolling) {
       requestAnimationFrame(() => {
         if (header) {
           header.classList.toggle('scrolled', window.pageYOffset > 50);
+        }
+        if (heroScrollSection && window.innerWidth >= 900 && heroBgVideo) {
+          const rect = heroScrollSection.getBoundingClientRect();
+          const scrollableDistance = heroScrollSection.offsetHeight - window.innerHeight;
+          if (scrollableDistance > 0) {
+            const progress = Math.min(Math.max(-rect.top / scrollableDistance, 0), 1);
+            const scale = 1.02 + (progress * 0.18);
+            const translateY = progress * 35;
+            heroBgVideo.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+            if (heroScrollHint) {
+              heroScrollHint.style.opacity = progress > 0.05 ? '0' : '0.9';
+            }
+          }
         }
         isScrolling = false;
       });
@@ -32,6 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.05, rootMargin: '50px' });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // 2b. Pause hero video when scrolled off-screen on mobile (saves CPU/GPU decode cycles)
+  if (heroBgVideo && 'IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          heroBgVideo.play().catch(() => {});
+        } else {
+          heroBgVideo.pause();
+        }
+      });
+    }, { threshold: 0 });
+    videoObserver.observe(heroBgVideo);
+  }
 
   // 3. Smooth scroll for anchor navigation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
