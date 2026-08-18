@@ -190,28 +190,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mobile Horizontal Scroll Active Slice Centering Detector for Cool Roster
+  // Mobile Horizontal Scroll Active Slice Centering Detector for Cool Roster (Strictly 1 Slice Lights Up)
   const coolRoster = document.getElementById('coolRoster');
   if (coolRoster) {
     function updateCenteredSlice() {
       if (window.innerWidth >= 900 || (coolRosterFrame && coolRosterFrame.classList.contains('is-expanded'))) return;
 
-      const rosterRect = coolRoster.getBoundingClientRect();
-      const rosterCenter = rosterRect.left + rosterRect.width / 2;
-
+      const maxScroll = coolRoster.scrollWidth - coolRoster.clientWidth;
       let closestSlice = null;
-      let minDistance = Infinity;
 
-      coolSlices.forEach(slice => {
-        const sliceRect = slice.getBoundingClientRect();
-        const sliceCenter = sliceRect.left + sliceRect.width / 2;
-        const distance = Math.abs(rosterCenter - sliceCenter);
+      if (coolRoster.scrollLeft <= 20) {
+        closestSlice = coolSlices[0];
+      } else if (coolRoster.scrollLeft >= maxScroll - 20) {
+        closestSlice = coolSlices[coolSlices.length - 1];
+      } else {
+        const rosterRect = coolRoster.getBoundingClientRect();
+        const rosterCenter = rosterRect.left + rosterRect.width / 2;
+        let minDistance = Infinity;
 
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestSlice = slice;
-        }
-      });
+        coolSlices.forEach(slice => {
+          const sliceRect = slice.getBoundingClientRect();
+          const sliceCenter = sliceRect.left + sliceRect.width / 2;
+          const distance = Math.abs(rosterCenter - sliceCenter);
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSlice = slice;
+          }
+        });
+      }
 
       coolSlices.forEach(s => s.classList.remove('is-centered'));
       if (closestSlice) {
@@ -247,28 +254,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mobile Horizontal Scroll Active Slice Centering Detector for Nektar Roster
+  // Mobile Horizontal Scroll Active Slice Centering Detector for Nektar Roster (Strictly 1 Slice Lights Up)
   const nektarRoster = document.getElementById('nektarRoster');
   if (nektarRoster) {
     function updateCenteredNektarSlice() {
       if (window.innerWidth >= 900 || (nektarRosterFrame && nektarRosterFrame.classList.contains('is-expanded'))) return;
 
-      const rosterRect = nektarRoster.getBoundingClientRect();
-      const rosterCenter = rosterRect.left + rosterRect.width / 2;
-
+      const maxScroll = nektarRoster.scrollWidth - nektarRoster.clientWidth;
       let closestSlice = null;
-      let minDistance = Infinity;
 
-      nektarSlices.forEach(slice => {
-        const sliceRect = slice.getBoundingClientRect();
-        const sliceCenter = sliceRect.left + sliceRect.width / 2;
-        const distance = Math.abs(rosterCenter - sliceCenter);
+      if (nektarRoster.scrollLeft <= 20) {
+        closestSlice = nektarSlices[0];
+      } else if (nektarRoster.scrollLeft >= maxScroll - 20) {
+        closestSlice = nektarSlices[nektarSlices.length - 1];
+      } else {
+        const rosterRect = nektarRoster.getBoundingClientRect();
+        const rosterCenter = rosterRect.left + rosterRect.width / 2;
+        let minDistance = Infinity;
 
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestSlice = slice;
-        }
-      });
+        nektarSlices.forEach(slice => {
+          const sliceRect = slice.getBoundingClientRect();
+          const sliceCenter = sliceRect.left + sliceRect.width / 2;
+          const distance = Math.abs(rosterCenter - sliceCenter);
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSlice = slice;
+          }
+        });
+      }
 
       nektarSlices.forEach(s => s.classList.remove('is-centered'));
       if (closestSlice) {

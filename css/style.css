@@ -3112,7 +3112,40 @@ section {
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, border-color 0.35s ease;
   }
 
-  /* Mobile Active Centered Slice Glow (Kaydırırken Ortadakinin Işıkları Yansın) */
+  /* Disable hover bleeding on mobile touch */
+  .cool-roster:hover .cool-roster-slice,
+  .nektar-roster:hover .nektar-roster-slice,
+  .cool-roster-slice:hover,
+  .nektar-roster-slice:hover {
+    flex: 0 0 175px !important;
+    transform: none !important;
+  }
+
+  /* Non-centered slices stay strictly dark and subtle */
+  .cool-roster-slice:not(.is-centered)::before,
+  .nektar-roster-slice:not(.is-centered)::before {
+    opacity: 0.12 !important;
+  }
+
+  .cool-roster-slice:not(.is-centered),
+  .nektar-roster-slice:not(.is-centered) {
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: none !important;
+  }
+
+  .cool-roster-slice:not(.is-centered) .cool-roster-img,
+  .nektar-roster-slice:not(.is-centered) .nektar-roster-img {
+    transform: none !important;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6)) !important;
+  }
+
+  .cool-roster-slice:not(.is-centered) .cool-roster-badge,
+  .nektar-roster-slice:not(.is-centered) .nektar-roster-badge {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  /* ONLY the ONE Centered Slice Glows Vibrant */
   .cool-roster-slice.is-centered::before,
   .nektar-roster-slice.is-centered::before {
     opacity: 0.96 !important;
@@ -3120,7 +3153,7 @@ section {
 
   .cool-roster-slice.is-centered,
   .nektar-roster-slice.is-centered {
-    border-color: rgba(255, 255, 255, 0.5) !important;
+    border-color: rgba(255, 255, 255, 0.55) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 25px rgba(255, 255, 255, 0.15) !important;
   }
 
