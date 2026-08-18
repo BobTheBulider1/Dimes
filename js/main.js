@@ -171,13 +171,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const coolRosterFrame = document.getElementById('coolRosterFrame');
   const coolRosterBack = document.getElementById('coolRosterBack');
   const coolSlices = document.querySelectorAll('.cool-roster-slice');
+  const coolRoster = document.getElementById('coolRoster');
 
   coolSlices.forEach(slice => {
     slice.addEventListener('click', () => {
       if (slice.classList.contains('is-active')) return;
 
+      // On mobile (< 900px): ONLY the lit-up (is-centered) slice can be opened!
+      if (window.innerWidth < 900 && coolRoster && !slice.classList.contains('is-centered')) {
+        // If tapping a non-centered slice, scroll it smoothly to the center so its lights turn on
+        const rosterRect = coolRoster.getBoundingClientRect();
+        const sliceRect = slice.getBoundingClientRect();
+        const currentScroll = coolRoster.scrollLeft;
+        const targetScroll = currentScroll + (sliceRect.left - rosterRect.left) - (rosterRect.width / 2 - sliceRect.width / 2);
+        coolRoster.scrollTo({ left: targetScroll, behavior: 'smooth' });
+        return;
+      }
+
       coolSlices.forEach(s => s.classList.remove('is-active'));
       slice.classList.add('is-active');
+      slice.classList.add('is-centered');
       if (coolRosterFrame) coolRosterFrame.classList.add('is-expanded');
     });
   });
@@ -191,7 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Mobile Horizontal Scroll Active Slice Centering Detector for Cool Roster (Strictly 1 Slice Lights Up)
-  const coolRoster = document.getElementById('coolRoster');
   if (coolRoster) {
     function updateCenteredSlice() {
       if (window.innerWidth >= 900 || (coolRosterFrame && coolRosterFrame.classList.contains('is-expanded'))) return;
@@ -235,13 +247,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const nektarRosterFrame = document.getElementById('nektarRosterFrame');
   const nektarRosterBack = document.getElementById('nektarRosterBack');
   const nektarSlices = document.querySelectorAll('.nektar-roster-slice');
+  const nektarRoster = document.getElementById('nektarRoster');
 
   nektarSlices.forEach(slice => {
     slice.addEventListener('click', () => {
       if (slice.classList.contains('is-active')) return;
 
+      // On mobile (< 900px): ONLY the lit-up (is-centered) slice can be opened!
+      if (window.innerWidth < 900 && nektarRoster && !slice.classList.contains('is-centered')) {
+        // If tapping a non-centered slice, scroll it smoothly to the center so its lights turn on
+        const rosterRect = nektarRoster.getBoundingClientRect();
+        const sliceRect = slice.getBoundingClientRect();
+        const currentScroll = nektarRoster.scrollLeft;
+        const targetScroll = currentScroll + (sliceRect.left - rosterRect.left) - (rosterRect.width / 2 - sliceRect.width / 2);
+        nektarRoster.scrollTo({ left: targetScroll, behavior: 'smooth' });
+        return;
+      }
+
       nektarSlices.forEach(s => s.classList.remove('is-active'));
       slice.classList.add('is-active');
+      slice.classList.add('is-centered');
       if (nektarRosterFrame) nektarRosterFrame.classList.add('is-expanded');
     });
   });

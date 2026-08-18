@@ -3234,6 +3234,13 @@ section {
     max-height: none !important;
     padding: 2.2rem 1rem 1rem !important;
     border-radius: var(--radius-lg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .cool-roster-slice.is-active::before,
+  .nektar-roster-slice.is-active::before {
+    opacity: 0.98 !important;
+    visibility: visible !important;
   }
 
   .cool-roster-slice.is-active .cool-roster-visual,
