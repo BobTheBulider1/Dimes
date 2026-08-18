@@ -448,13 +448,13 @@ ul, ol {
    HERO SECTION
    Full viewport, asymmetric, with grain texture
    ============================================ */
-/* Hero Section - Full Viewport Screen Coverage */
+/* Hero Section - Full Viewport Screen Coverage with Brand Cream Background */
 .hero-scroll-section {
   position: relative;
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
-  background: #1c1917;
+  background: var(--cream);
   overflow: hidden;
 }
 
@@ -468,6 +468,7 @@ ul, ol {
   justify-content: center;
   padding: 6rem 1rem 3rem;
   overflow: hidden;
+  background: var(--cream);
 }
 
 /* Full Hero Video Background - 100% Full Screen Coverage */
@@ -479,6 +480,7 @@ ul, ol {
   z-index: 1;
   overflow: hidden;
   pointer-events: none;
+  background: var(--cream);
 }
 
 .hero-bg-video {
@@ -487,10 +489,10 @@ ul, ol {
   object-fit: cover;
   object-position: center center;
   opacity: 1;
-  transform: scale(1.05);
+  transform: scale(1.18); /* Scales video to eliminate all top/bottom letterbox black borders */
 }
 
-/* Clean transparent overlay — zero black shading on video */
+/* Clean subtle overlay matching site brand warmth — zero dark/black shading */
 .hero-smoky-overlay {
   position: absolute;
   inset: 0;
@@ -1821,15 +1823,20 @@ section {
     top: 0 !important;
     height: auto !important;
     min-height: 100vh;
-    min-height: 100dvh;
     padding: 6rem 1rem 3.5rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
   }
 
+  .hero-scroll-section,
+  .hero-sticky-wrapper,
+  .hero-video-bg {
+    background: var(--cream) !important;
+  }
+
   .hero-bg-video {
-    transform: none !important;
+    transform: scale(1.18) !important;
     transition: none !important;
     filter: none !important;
     -webkit-filter: none !important;
